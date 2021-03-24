@@ -12,7 +12,6 @@ const SupplierNav = () => {
         <Link to="/" className="nav-link">
           Tools
         </Link>
-
         <Link to="/" className="nav-link">
           Statistics
         </Link>
