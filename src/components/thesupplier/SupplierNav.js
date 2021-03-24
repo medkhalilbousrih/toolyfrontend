@@ -10,11 +10,11 @@ const SupplierNav = () => {
           Add Tool
         </Link>
         <Link to="/" className="nav-link">
-          Home
+          Tools
         </Link>
 
         <Link to="/" className="nav-link">
-          Home
+          Statistics
         </Link>
       </Nav>
     </Navbar>
