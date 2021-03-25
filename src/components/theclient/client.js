@@ -2,7 +2,10 @@
 
 const Client = () => {
  return(
-     <p>hello</p>
+     <div>
+         <p>hazeee</p>
+     </div>
+     
  )
 };
  export default Client;
