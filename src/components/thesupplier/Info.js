@@ -30,7 +30,9 @@ const Info = () => {
           <p>Tunis</p>
         </div>
       </Details>
-      <Stats></Stats>
+      <Stats>
+        <p>a</p>
+      </Stats>
     </StyledInfo>
   );
 };
@@ -38,6 +40,7 @@ const Info = () => {
 const Stats = styled.div`
   background-color: #353535;
   height: 3rem;
+  color: white;
 `;
 
 const StyledInfo = styled.div`

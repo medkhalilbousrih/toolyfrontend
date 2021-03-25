@@ -1,18 +1,17 @@
 import { Navbar, Nav } from "react-bootstrap";
-import { Link, useRouteMatch } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const SupplierNav = () => {
-  let { path, url } = useRouteMatch();
+const SupplierNav = ({ url }) => {
   return (
     <Navbar bg="light" variant="light">
       <Nav>
+        <Link to={`${url}`} className="nav-link">
+          Tools
+        </Link>
         <Link to={`${url}/addtool`} className="nav-link">
           Add Tool
         </Link>
-        <Link to="/" className="nav-link">
-          Tools
-        </Link>
-        <Link to="/" className="nav-link">
+        <Link to={`${url}/addtool`} className="nav-link">
           Statistics
         </Link>
       </Nav>

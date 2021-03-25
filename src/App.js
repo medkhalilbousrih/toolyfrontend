@@ -12,7 +12,7 @@ const App = () => {
           <Supplier />
         </Route>
         <Route path="/client">
-          <Client/>
+          <Client />
         </Route>
       </Switch>
       <Footer/>
