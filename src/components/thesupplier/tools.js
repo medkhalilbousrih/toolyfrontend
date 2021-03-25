@@ -9,7 +9,7 @@ const Tools = () => {
   return (
     <div>
       {tools.map((tool) => (
-        <p>{tool.name}</p>
+        <p>{tool.price}</p>
       ))}
     </div>
   );
