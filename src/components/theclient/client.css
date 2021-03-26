@@ -1,0 +1,61 @@
+.tt:hover {
+  background-color: #ffc800;
+  font-weight: bolder;
+}
+
+a {
+  font-family: "Open Sans";
+  font-weight: normal;
+  font-size: 1rem;
+  text-align: center;
+  color: #000 !important;
+}
+
+.p-1 {
+  padding-top: 2rem !important;
+  padding-left: 0% !important;
+  margin-left: 0%;
+}
+
+.pp {
+  height: 4rem;
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+
+.cc {
+  background: #ffc800;
+  height: 15rem;
+  width: 70rem;
+  border-radius: 20px;
+  margin: auto;
+  margin-top: 2rem;
+  position: relative;
+}
+
+.mp {
+  width: 9rem;
+  height: 9rem;
+  border-radius: 40px;
+  background: #353535;
+  position: relative;
+  margin-left: -5rem;
+  margin-top: 5rem;
+}
+
+.doura {
+  width: 9rem;
+  height: 9rem;
+  background-color: #353535;
+  border: 5px solid #353535;
+  border-radius: 50%;
+  position: relative;
+  margin-left: -5rem;
+  margin-top: -11.8rem;
+}
+
+.ii {
+  max-width: 100%;
+  border-radius: 50%;
+}
