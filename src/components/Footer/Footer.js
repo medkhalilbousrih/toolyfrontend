@@ -30,7 +30,7 @@ const Footer = () => {
               about new offers and promotions.
             </p>
             <input type="text" className="form-control inputt "></input>
-            <button type="button" class="btn btn-warning butt">
+            <button type="button" className="btn btn-warning butt">
               SUBSCRIBE
             </button>
           </div>

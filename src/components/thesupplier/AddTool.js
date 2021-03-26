@@ -6,7 +6,9 @@ const AddTool = () => {
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = (tool) => {
-    toolService.create(tool).then((res) => console.log(res));
+    const data = new FormData();
+    data.append("toolImage", tool.img[0]);
+    toolService.create(data).then((res) => console.log(res));
   };
 
   return (
@@ -42,7 +44,7 @@ const AddTool = () => {
         <Form.Group>
           <Form.Label>Price</Form.Label>
           <Form.Control
-            type="text"
+            type="number"
             placeholder="enter tool price"
             name="price"
             ref={register}
@@ -67,6 +69,7 @@ const AddTool = () => {
             ref={register}
           />
         </Form.Group>
+        <input type="file" name="img" ref={register} />
         <Button variant="dark" className="float-right" type="submit">
           Submit
         </Button>
