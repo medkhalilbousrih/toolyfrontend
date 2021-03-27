@@ -11,7 +11,7 @@ const Client = () => {
             aria-orientation="vertical "
           >
             <a
-              className=" tt nav-link pp"
+              className=" tt nav-link pp pmn"
               id="v-pills-home-tab"
               data-toggle="pill"
               href="#"
@@ -22,7 +22,7 @@ const Client = () => {
               <i class="fas fa-id-card"></i>&nbsp;&nbsp;Overview
             </a>
             <a
-              className="tt nav-link pp"
+              className="tt nav-link pp pmn"
               id="v-pills-profile-tab"
               data-toggle="pill"
               href="#"

@@ -3,7 +3,7 @@
   height: 200px;
   background: #353535;
 }
-p {
+.ppp {
   color: white;
   padding-left: 0.3rem;
   font-family: "Open Sans";
@@ -29,16 +29,13 @@ p {
   padding-left: 1.9rem;
 }
 
-p .yellow {
+.ppp .yellow {
   color: #ffc800;
 }
 
 .catt {
   text-align: left;
   padding-top: 2rem;
-}
-
-.sub {
 }
 
 .size {
