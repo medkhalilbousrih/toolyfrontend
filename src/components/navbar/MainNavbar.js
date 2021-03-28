@@ -59,8 +59,9 @@ const Nav = styled.div`
   }
 `;
 const Sep = styled.div`
-  height: 0.1rem;
-  background-color: #353535;
+  height: 0.01rem;
+  background-color: rgb(235, 235, 235);
+  box-shadow: 0px 1px 5px grey;
 `;
 
 export default MainNavbar;
