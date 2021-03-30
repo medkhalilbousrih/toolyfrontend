@@ -14,13 +14,13 @@ const SupplierContainer = () => {
 };
 const Tools = styled.div`
   display: flex;
-  width: 80%;
+  width: 100%;
   flex-flow: row wrap;
   margin: 4rem 2rem 4rem 2rem;
 `;
 
 const SupContainer = styled.div`
-  width: 100%;
-  margin-left: 0rem;
+  width: 80%;
+  margin-left: auto;
 `;
 export default SupplierContainer;
