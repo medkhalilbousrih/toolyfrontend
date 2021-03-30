@@ -59,7 +59,7 @@ const Navigation = () => {
 };
 
 const SupNav = styled.div`
-  width: 20%;
+  width: 17%;
   margin-top: 6rem;
   color: #000000;
   font-family: "Open Sans";

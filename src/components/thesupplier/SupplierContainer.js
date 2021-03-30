@@ -20,7 +20,7 @@ const Tools = styled.div`
 `;
 
 const SupContainer = styled.div`
-  width: 100%;
+  width: 80%;
   margin-left: 2rem;
 `;
 export default SupplierContainer;
