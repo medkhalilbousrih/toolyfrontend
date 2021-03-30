@@ -66,7 +66,7 @@ const Suppliers = () => {
           <div className="col-10">
             <div className="row">
               <div className=" ccsup ">
-                <p className="NameTitlesup">TOOLY</p>
+                <p className="NameTitlesup">TOOLYYYY</p>
                 <div className="order">
                   <div className="order1">
                     <p className="gra">Type</p>
