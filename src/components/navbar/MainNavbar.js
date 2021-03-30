@@ -11,6 +11,7 @@ const MainNavbar = () => {
           <i className="fab fa-twitter-square fa-lg"></i>
           <i className="fab fa-instagram-square fa-lg"></i>
         </div>
+        <Link to="/PROSignup">PROFESSIONAL SPACE</Link>
       </Contact>
       <Nav>
         <div>
@@ -20,6 +21,7 @@ const MainNavbar = () => {
           <Link to="/supplier">Supplier</Link>
           <Link to="/client">client</Link>
           <Link to="/catalogue">Catalogue</Link>
+          <Link to="/ClientSignup">Sign Up</Link>
         </div>
       </Nav>
       <Sep></Sep>
