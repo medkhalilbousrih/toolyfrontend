@@ -17,7 +17,6 @@ const App = ({}) => {
   return (
     <Router>
       <MainNavbar />
-
       <Switch>
         <Route path="/PROSignup">
           <PROSignup />
@@ -27,6 +26,9 @@ const App = ({}) => {
         </Route>
         <Route path="/supplier">
           <Suppliers />
+        </Route>
+        <Route path="/thesupplier">
+          <Supplier />
         </Route>
         <Route path="/client">
           <Client />
