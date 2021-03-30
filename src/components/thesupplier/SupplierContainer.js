@@ -14,7 +14,7 @@ const SupplierContainer = () => {
 };
 const Tools = styled.div`
   display: flex;
-  width: 100%;
+  width: 80%;
   flex-flow: row wrap;
   margin: 4rem 2rem 4rem 2rem;
 `;
