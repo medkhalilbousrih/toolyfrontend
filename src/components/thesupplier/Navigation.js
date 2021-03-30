@@ -14,7 +14,7 @@ const Navigation = () => {
             exact
             to={url}
             activeStyle={{
-              fontWeight: "bolder",
+              backgroundColor: "#ffc800",
             }}
           >
             {" "}
@@ -37,7 +37,7 @@ const Navigation = () => {
           <LinkStyle
             to={`${url}/addtool`}
             activeStyle={{
-              fontWeight: "bolder",
+              backgroundColor: "#ffc800",
             }}
           >
             {" "}
