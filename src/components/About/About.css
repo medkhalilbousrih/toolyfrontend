@@ -25,7 +25,7 @@
 }
 
 .bloc1 {
-  width: 25rem;
+  width: 30rem;
   height: 30rem;
   border-radius: 3.125rem;
   background: rgb(255, 255, 255);
@@ -33,7 +33,7 @@
   border: 0.5px solid #dfdfdf;
 }
 .bloc2 {
-  width: 25rem;
+  width: 30rem;
   height: 30rem;
   border-radius: 3.125rem;
   background: #353535;
@@ -45,7 +45,7 @@
 
 .sendmsg {
   margin-top: 0.5rem;
-  margin-left: 1.7rem;
+  margin-left: 4.2rem;
 }
 .titregra {
   font-family: "Open Sans";
