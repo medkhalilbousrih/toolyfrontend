@@ -4,7 +4,6 @@ import "./About.css";
 import TextField from "@material-ui/core/TextField";
 import Button from "react-bootstrap/Button";
 import FAQ from "./FAQ";
-
 const About = () => {
   return (
     <>
@@ -57,6 +56,7 @@ const About = () => {
                   label="Name"
                   variant="outlined"
                   style={{ width: 350 }}
+                  color="secondary"
                 />
               </Grid>
 
