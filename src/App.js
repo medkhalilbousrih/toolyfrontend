@@ -12,7 +12,7 @@ import Footer from "./components/Footer/Footer";
 import PROSignup from "./components/PROSignup/PROSignup";
 import ClientSignup from "./components/ClientSignup/ClientSignup";
 import Suppliers from "./components/Supplier/Suppliers";
-
+import About from "./components/About/About";
 const App = ({}) => {
   return (
     <Router>
@@ -32,6 +32,9 @@ const App = ({}) => {
         </Route>
         <Route path="/client">
           <Client />
+        </Route>
+        <Route path="/About">
+          <About />
         </Route>
       </Switch>
 

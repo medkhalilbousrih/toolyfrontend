@@ -18,7 +18,7 @@ const MainNavbar = () => {
           <img src="/logo.png" alt="logo" />
         </div>
         <div>
-          <Link to="/supplier">Supplier</Link>
+          <Link to="/thesupplier">Supplier</Link>
           <Link to="/client">client</Link>
           <Link to="/catalogue">Catalogue</Link>
           <Link to="/ClientSignup">Sign Up</Link>

@@ -1,0 +1,67 @@
+.row1 {
+  margin-top: 2rem;
+}
+
+.paperyelloww {
+  width: 30rem;
+  height: 15rem;
+  border-radius: 40px;
+  padding-left: 2rem;
+  padding-top: 2rem;
+  background-color: #ffc800;
+}
+
+.Question {
+  padding-right: 2rem;
+  font-size: 16px;
+}
+
+.reponse {
+  font-size: 16px;
+  padding-right: 2rem;
+}
+
+.paperblack {
+  width: 22rem;
+  height: 20rem;
+  border-radius: 40px;
+  padding-left: 2rem;
+  padding-top: 2rem;
+  background-color: #353535;
+  color: white;
+}
+.itemblack1 {
+  margin-top: 0rem;
+}
+.paperblack2 {
+  width: 22rem;
+  height: 20rem;
+  border-radius: 40px;
+  padding-left: 2rem;
+  padding-top: 2rem;
+  background-color: #353535;
+  color: white;
+}
+.itemblack2 {
+  margin-top: 0rem;
+}
+
+.paperblack3 {
+  width: 22rem;
+  height: 20rem;
+  border-radius: 40px;
+  padding-left: 2rem;
+  padding-top: 2rem;
+  background-color: #353535;
+  color: white;
+}
+.itemblack3 {
+  margin-top: -1rem;
+}
+.FAQ {
+  padding-top: 5rem;
+  text-align: center;
+  font-family: "Roboto";
+  font-weight: normal;
+  font-size: 6rem;
+}

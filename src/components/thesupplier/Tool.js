@@ -100,11 +100,17 @@ const CARD = styled(Card)`
   width: 13.3rem;
 `;
 const Btn = styled(Button)`
-  height: 2rem;
+  height: 1.5rem;
+  font-size: 10px;
 `;
 
 const CardBody = styled(Card.Body)`
-  background-color: #fad85e;
+  background-color: #ffc800;
+  height: 5rem;
+  font-size: 0.7rem;
+  padding-top: 0.2rem;
+  line-height: 5px;
+  font-weight: bolder;
 `;
 
 export default Tool;
