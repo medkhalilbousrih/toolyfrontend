@@ -1,12 +1,19 @@
 import styled from "styled-components";
+import Image from "react-bootstrap/Image";
 
 const ProfileInfo = () => {
   return (
     <Profile>
       <Img>
-        <img src="/Images/aymen.jpg" />
+        <Image src="/Images/aymen.jpg" fluid roundedCircle />
       </Img>
-      <Info></Info>
+      <Info>
+        <div className="">Total Owned Tools: 0</div>
+
+        <div className="">Tools being rented right now: 0</div>
+
+        <div className="">Total sold Tools: 0</div>
+      </Info>
     </Profile>
   );
 };
@@ -25,6 +32,14 @@ const Info = styled.div`
   background-color: #353535;
   height: 3.5rem;
   border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  color: white;
+  align-items: center;
+  margin-left: 1rem;
+  font-weight: lighter;
+  font-family: "Open Sans";
 `;
 
 const Img = styled.div`
