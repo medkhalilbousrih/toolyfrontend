@@ -1,31 +1,34 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 const MainNavbar = () => {
+  const location = useLocation();
   return (
-    <>
-      <Contact>
-        <div>Call Tooly: 99 999 999</div>
-        <div>
-          <i className="fab fa-facebook-square fa-lg"></i>
-          <i className="fab fa-twitter-square fa-lg"></i>
-          <i className="fab fa-instagram-square fa-lg"></i>
-        </div>
-        <Link to="/PROSignup">PROFESSIONAL SPACE</Link>
-      </Contact>
-      <Nav>
-        <div>
-          <img src="/logo.png" alt="logo" />
-        </div>
-        <div>
-          <Link to="/thesupplier">Supplier</Link>
-          <Link to="/client">client</Link>
-          <Link to="/catalogue">Catalogue</Link>
-          <Link to="/ClientSignup">Sign Up</Link>
-        </div>
-      </Nav>
-      <Sep></Sep>
-    </>
+    location.pathname !== "/ClientSignup" && (
+      <>
+        <Contact>
+          <div>Call Tooly: 99 999 999</div>
+          <div>
+            <i className="fab fa-facebook-square fa-lg"></i>
+            <i className="fab fa-twitter-square fa-lg"></i>
+            <i className="fab fa-instagram-square fa-lg"></i>
+          </div>
+          <Link to="/PROSignup">PROFESSIONAL SPACE</Link>
+        </Contact>
+        <Nav>
+          <div>
+            <img src="/logo.png" alt="logo" />
+          </div>
+          <div>
+            <Link to="/thesupplier">Supplier</Link>
+            <Link to="/client">client</Link>
+            <Link to="/catalogue">Catalogue</Link>
+            <Link to="/ClientSignup">Sign Up</Link>
+          </div>
+        </Nav>
+        <Sep></Sep>
+      </>
+    )
   );
 };
 
