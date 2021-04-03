@@ -1,12 +1,15 @@
-import { Paper, Grid } from "@material-ui/core";
-import Image from "react-bootstrap/Image";
+import { Grid } from "@material-ui/core";
 import "./About.css";
 import TextField from "@material-ui/core/TextField";
 import Button from "react-bootstrap/Button";
 import FAQ from "./FAQ";
+
+import CssBaseline from "@material-ui/core/CssBaseline";
+
 const About = () => {
   return (
     <>
+      <CssBaseline />
       <taswira>
         <div className="back">
           <h2 className="contactus">Contact Us</h2>
