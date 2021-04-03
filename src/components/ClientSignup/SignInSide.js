@@ -41,7 +41,7 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: "100%",
+    height: "100vh",
   },
   image: {
     backgroundImage: "url(./Images/tools.jpg)",
@@ -53,6 +53,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: "cover",
     backgroundPosition: "center",
   },
+
   paper: {
     margin: theme.spacing(0, 4),
     display: "flex",
@@ -91,6 +92,7 @@ export default function SignInSide() {
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
+
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
           <TypoSign>
