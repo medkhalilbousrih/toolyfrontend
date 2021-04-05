@@ -1,0 +1,57 @@
+.contenairekbirrrrr {
+  margin-top: 2rem;
+  margin-left: 2rem;
+  margin-right: 1rem;
+}
+.GrandTitre {
+  display: flex;
+  font-size: 1.5rem;
+}
+.ToolsTrack {
+  font-family: "Roboto";
+  font-size: 2rem;
+}
+.Ligne2track {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.Ligne2track-part1 {
+  display: flex;
+  align-items: flex-end;
+}
+.boxfiltragetracktools {
+  background: #f8f8f8;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.Ligne2track-part2 {
+  display: flex;
+}
+
+.Tools-Being-rented-Right-Now {
+  font-size: 13px;
+}
+.Rentalsidenetity {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 5rem;
+
+  color: #8e8e8e;
+  font-size: 0.8125rem;
+  margin-top: 0.5rem;
+
+  flex-wrap: wrap;
+}
+
+.cardrentals {
+  background: #ffd950;
+  height: 50px;
+  border-radius: 3px;
+  margin-top: 0.4rem;
+  margin-left: -0.3rem;
+  box-shadow: 1px 1px 5px rgba(105, 105, 105, 0.4);
+}

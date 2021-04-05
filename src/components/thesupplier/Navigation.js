@@ -1,8 +1,9 @@
 import { Route, Switch, useRouteMatch } from "react-router-dom";
 import styled from "styled-components";
 import SupplierContainer from "./SupplierContainer";
-import AddTool from "./AddTool";
+import AddTool from "./Add Tools/AddTool";
 import { NavLink } from "react-router-dom";
+import ToolsTrack from "./ToolsTrack";
 
 const Navigation = () => {
   let { path, url } = useRouteMatch();
@@ -28,7 +29,12 @@ const Navigation = () => {
           </LinkStyle>
         </p>
         <p>
-          <LinkStyle to={url}>
+          <LinkStyle
+            to={`${url}/ToolsTrack`}
+            activeStyle={{
+              backgroundColor: "#ffc800",
+            }}
+          >
             {" "}
             <i class="fas fa-hammer"> </i> Tools Track
           </LinkStyle>
@@ -52,6 +58,9 @@ const Navigation = () => {
         </Route>
         <Route path={`${path}/addtool`}>
           <AddTool />
+        </Route>
+        <Route path={`${path}/ToolsTrack`}>
+          <ToolsTrack />
         </Route>
       </Switch>
     </>

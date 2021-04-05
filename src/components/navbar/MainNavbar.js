@@ -1,10 +1,42 @@
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
+import { makeStyles } from "@material-ui/core/styles";
+
+import Button from "@material-ui/core/Button";
+import "./Header.css";
+
+const useStyles = makeStyles((theme) => ({
+  submit: {
+    margin: theme.spacing(0, 0, 1),
+    height: "20px",
+    width: "80px",
+    color: "black",
+
+    backgroundColor: "#ffc800",
+    "&:hover": {
+      backgroundColor: "white",
+      color: "black",
+    },
+  },
+  submit2: {
+    margin: theme.spacing(0, 0, 1),
+    height: "20px",
+    width: "90px",
+    color: "white",
+    borderColor: "white",
+
+    "&:hover": {
+      backgroundColor: "#ffc800",
+      color: "black",
+    },
+  },
+}));
 
 const MainNavbar = () => {
+  const classes = useStyles();
   const location = useLocation();
   return (
-    location.pathname !== "/ClientSignup" && (
+    location.pathname !== "/Signup" && (
       <>
         <Contact>
           <div>Call Tooly: 99 999 999</div>
@@ -13,17 +45,56 @@ const MainNavbar = () => {
             <i className="fab fa-twitter-square fa-lg"></i>
             <i className="fab fa-instagram-square fa-lg"></i>
           </div>
-          <Link to="/PROSignup">PROFESSIONAL SPACE</Link>
+          <div className="logbuttons">
+            <Link to="/Signup" className="ccwhiteee">
+              <Button
+                type="submit"
+                fullWidth
+                variant="outlined"
+                color="primary"
+                className={classes.submit2}
+              >
+                Sign Up
+              </Button>
+            </Link>
+            &nbsp;&nbsp;
+            <Link to="/Signin" className="ccblacc">
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                className={classes.submit}
+              >
+                Log In
+              </Button>
+            </Link>
+          </div>
         </Contact>
         <Nav>
           <div>
             <img src="/logo.png" alt="logo" />
           </div>
           <div>
-            <Link to="/thesupplier">Supplier</Link>
-            <Link to="/client">client</Link>
+            <Link to="/thesupplier">Home</Link>
+            &nbsp;&nbsp;
             <Link to="/catalogue">Catalogue</Link>
-            <Link to="/ClientSignup">Sign Up</Link>
+            &nbsp;&nbsp;
+            <Link to="/about">Contat-Us</Link>
+            &nbsp;&nbsp;
+            <Link to="/about">F.A.Q ?</Link>
+          </div>
+          <div>
+            <i class="fas fa-cart-arrow-down"></i>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <Link to="/client">
+              <i class="fas fa-user-plus"></i>
+            </Link>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <Link to="/thesupplier">
+              <i class="fas fa-user-astronaut"></i>
+            </Link>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           </div>
         </Nav>
         <Sep></Sep>
@@ -52,10 +123,12 @@ const Nav = styled.div`
   height: 4rem;
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
   font-family: "Open Sans", sans-serif;
   div {
     margin-top: 0.5rem;
-    margin-left: 2rem;
+    margin-left: 1rem;
+    margin-right: 3rem;
     height: 4rem;
     img {
       max-height: 80%;
