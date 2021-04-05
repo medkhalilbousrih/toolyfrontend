@@ -7,15 +7,19 @@ import PROSignup from "./components/PROSignup/PROSignup";
 import ClientSignup from "./components/ClientSignup/ClientSignup";
 import Suppliers from "./components/Supplier/Suppliers";
 import About from "./components/About/About";
+import Signin from "./components/Signin/Signin";
 const App = ({}) => {
   return (
     <Router>
       <MainNavbar />
       <Switch>
+        <Route path="/Signin">
+          <Signin />
+        </Route>
         <Route path="/PROSignup">
           <PROSignup />
         </Route>
-        <Route path="/ClientSignup">
+        <Route path="/Signup">
           <ClientSignup />
         </Route>
         <Route path="/supplier">

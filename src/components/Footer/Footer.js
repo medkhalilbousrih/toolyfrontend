@@ -5,7 +5,7 @@ const Footer = () => {
   const location = useLocation();
 
   return (
-    location.pathname !== "/ClientSignup" && (
+    location.pathname !== "/Signup" && (
       <>
         <div className="container col-md-12">
           <div className="row">
