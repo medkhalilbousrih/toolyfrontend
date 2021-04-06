@@ -13,7 +13,7 @@ const App = ({}) => {
     <Router>
       <MainNavbar />
       <Switch>
-        <Route path="/Signin">
+        <Route path="/SignIn">
           <Signin />
         </Route>
         <Route path="/PROSignup">
