@@ -236,6 +236,11 @@ export default function SignInSide() {
                   <i class="fas fa-arrow-left"></i>&nbsp; Go Back
                 </Link>
               </Grid>
+              <Grid item>
+                <Link href="#" variant="body2">
+                  {"Already have an account? Sign in"}
+                </Link>
+              </Grid>
             </Grid>
             <Box mt={5}>
               <Copyright />

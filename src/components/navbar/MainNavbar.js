@@ -36,7 +36,8 @@ const MainNavbar = () => {
   const classes = useStyles();
   const location = useLocation();
   return (
-    location.pathname !== "/Signup" && (
+    location.pathname !== "/Signup" &&
+    location.pathname !== "/SignIn" && (
       <>
         <Contact>
           <div>Call Tooly: 99 999 999</div>
@@ -58,7 +59,7 @@ const MainNavbar = () => {
               </Button>
             </Link>
             &nbsp;&nbsp;
-            <Link to="/Signin" className="ccblacc">
+            <Link to="/SignIn" className="ccblacc">
               <Button
                 type="submit"
                 fullWidth
