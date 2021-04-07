@@ -78,7 +78,7 @@ export default function SignIn() {
       <Grid
         item
         xs={12}
-        sm={3}
+        sm={6}
         md={3}
         component={Paper}
         elevation={6}
