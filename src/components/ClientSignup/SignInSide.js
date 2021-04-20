@@ -9,7 +9,7 @@ import styled from "styled-components";
 import { Form, Button, Alert } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { useHistory } from "react-router";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -62,7 +62,7 @@ export default function SignInSide() {
         "https://tranquil-journey-35786.herokuapp.com/api/users",
         data
       );
-      history.push("http://localhost:3000/catalogue");
+      history.push("/login");
     } catch (exception) {
       console.log(exception.response);
     }

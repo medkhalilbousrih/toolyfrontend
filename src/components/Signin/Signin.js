@@ -10,8 +10,10 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { useForm } from "react-hook-form";
 import { Form } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 import { useContext } from "react";
 import { RoleContext } from "../../contexts/RoleContext";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "100vh",
@@ -57,6 +59,7 @@ export default function SignIn() {
   const classes = useStyles();
   const { register, handleSubmit } = useForm();
   const [role, setRole] = useContext(RoleContext);
+  const history = useHistory();
 
   const onSubmit = async (data) => {
     try {
@@ -69,6 +72,7 @@ export default function SignIn() {
         "connectedUser",
         JSON.stringify(connectedUser.data)
       );
+      history.push("/profile");
     } catch (exception) {
       console.log(exception.response);
     }
