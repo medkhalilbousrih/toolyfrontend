@@ -2,14 +2,26 @@ import styled from "styled-components";
 import ProfileInfo from "./ProfileInfo";
 import Tool from "./Tool";
 import Stats from "./stats";
+import supplierService from "./services/supplier";
+import { useEffect, useState } from "react";
 
 const SupplierContainer = () => {
+  const [info, setInfo] = useState({});
+  useEffect(() => {
+    supplierService
+      .getAll()
+      .then((res) => {
+        setInfo(res);
+        console.log(res);
+      })
+      .catch((err) => console.log(err.response));
+  }, []);
   return (
     <SupContainer>
       <ProfileInfo />
       <Stats />
       <Tools>
-        <Tool />
+        {info.tools && info.tools.map((tool) => <Tool data={tool} />)}
       </Tools>
     </SupContainer>
   );

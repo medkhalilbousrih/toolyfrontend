@@ -1,43 +1,73 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import MainNavbar from "./components/navbar/MainNavbar";
-import Supplier from "./components/thesupplier/Supplier";
-import Client from "./components/theclient/client";
 import Footer from "./components/Footer/Footer";
-import PROSignup from "./components/PROSignup/PROSignup";
-import ClientSignup from "./components/ClientSignup/ClientSignup";
-import Suppliers from "./components/Supplier/Suppliers";
 import About from "./components/About/About";
 import Signin from "./components/Signin/Signin";
-const App = ({}) => {
-  return (
-    <Router>
-      <MainNavbar />
-      <Switch>
-        <Route path="/SignIn">
-          <Signin />
-        </Route>
-        <Route path="/PROSignup">
-          <PROSignup />
-        </Route>
-        <Route path="/Signup">
-          <ClientSignup />
-        </Route>
-        <Route path="/supplier">
-          <Suppliers />
-        </Route>
-        <Route path="/thesupplier">
-          <Supplier />
-        </Route>
-        <Route path="/client">
-          <Client />
-        </Route>
-        <Route path="/About">
-          <About />
-        </Route>
-      </Switch>
+import Catalogue from "./components/catalogue/Catalogue";
+import SignInSide from "./components/ClientSignup/SignInSide";
+import { useState, useEffect } from "react";
+import { RoleContext } from "./contexts/RoleContext";
+import Profile from "./components/profile/Profile";
+const App = () => {
+  const [role, setRole] = useState(null);
 
-      <Footer />
-    </Router>
+  useEffect(() => {
+    const connectedUser = window.localStorage.getItem("connectedUser");
+    if (connectedUser) {
+      const user = JSON.parse(connectedUser);
+      setRole(user.role);
+    }
+  }, []);
+
+  return (
+    <RoleContext.Provider value={[role, setRole]}>
+      <Router>
+        <MainNavbar />
+        {role ? (
+          <Switch>
+            <Route exact path="/">
+              <Redirect to="/catalogue" />
+            </Route>
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/catalogue">
+              <Catalogue />
+            </Route>
+            <Route path="/profile">
+              <Profile />
+            </Route>
+          </Switch>
+        ) : (
+          <Switch>
+            <Route exact path="/">
+              <Redirect to="/catalogue" />
+            </Route>
+            <Route path="/signup">
+              <SignInSide />
+            </Route>
+            <Route path="/login">
+              <Signin />
+            </Route>
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/catalogue">
+              <Catalogue />
+            </Route>
+            <Route path="/profile">
+              <Signin />
+            </Route>
+          </Switch>
+        )}
+        <Footer />
+      </Router>
+    </RoleContext.Provider>
   );
 };
 

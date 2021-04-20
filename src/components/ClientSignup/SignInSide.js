@@ -1,43 +1,15 @@
 import React from "react";
-import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
-import Link from "@material-ui/core/Link";
 import Paper from "@material-ui/core/Paper";
-import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import "./SignInSide.css";
 import styled from "styled-components";
-
-import MenuItem from "@material-ui/core/MenuItem";
-
-const currencies = [
-  {
-    value: "Client",
-    label: "Client",
-  },
-  {
-    value: "Supplier",
-    label: "Supplier",
-  },
-];
-
-function Copyright() {
-  return (
-    <Typography variant="body2" align="center">
-      {"Copyright © "}
-      <Link className="toolysignup" color="warning" href="">
-        TOOLY
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
+import { Form, Button, Alert } from "react-bootstrap";
+import { useForm } from "react-hook-form";
+import axios from "axios";
+import { useHistory } from "react-router";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -82,10 +54,18 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignInSide() {
   const classes = useStyles();
-  const [currency, setCurrency] = React.useState("Client");
-
-  const handleChange = (event) => {
-    setCurrency(event.target.value);
+  const { register, handleSubmit, formState, errors } = useForm();
+  const history = useHistory();
+  const onSubmit = async (data) => {
+    try {
+      await axios.post(
+        "https://tranquil-journey-35786.herokuapp.com/api/users",
+        data
+      );
+      history.push("http://localhost:3000/catalogue");
+    } catch (exception) {
+      console.log(exception.response);
+    }
   };
 
   return (
@@ -102,150 +82,79 @@ export default function SignInSide() {
           </TypoSign>
           <TypoPhrase>
             <Typography className="TypoPhrase" component="h7" variant="h7">
-              AND PICK YOUR TOOL
+              AND PICK OR RENT A TOOL
             </Typography>
           </TypoPhrase>
-          <form className={classes.form} noValidate>
-            <Grid container spacing={3}>
-              <Grid item xs={12} sm={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="standard-required"
-                  label="Full Name"
-                  name="FullName"
-                  autoComplete="lname"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="standard-required"
-                  label="UserName"
-                  name="UserName"
-                />
-              </Grid>
-              <Grid item xs={12} sm={3}>
-                <Typography className="Dateofbirth" component="h7" variant="h7">
-                  DATE OF BIRTH
-                </Typography>
-              </Grid>
-              <Grid item xs={12} sm={3}>
-                <TextField
-                  id="standard-required"
-                  label="DD"
-                  type="number"
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                />
-              </Grid>
-              <Grid item xs={12} sm={3}>
-                <TextField
-                  id="standard-required"
-                  label="MM"
-                  type="number"
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                />
-              </Grid>
-              <Grid item xs={12} sm={3}>
-                <TextField
-                  id="standard-required"
-                  label="YYYY"
-                  type="number"
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="standard-required"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="standard-required"
-                  autoComplete="current-password"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  name="Confirm Password"
-                  label="Confirm Password"
-                  type="password"
-                  id="standard-required"
-                  autoComplete="current-password"
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  id="outlined-select-currency"
-                  select
-                  fullWidth
-                  label="Select"
-                  value={currency}
-                  onChange={handleChange}
-                  helperText="Please select your Role"
-                  variant="outlined"
-                >
-                  {currencies.map((option) => (
-                    <MenuItem key={option.value} value={option.value}>
-                      {option.label}
-                    </MenuItem>
-                  ))}
-                </TextField>
-              </Grid>
+          <Form onSubmit={handleSubmit(onSubmit)}>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Enter email"
+                name="email"
+                ref={register({ required: true })}
+              />
 
-              <Grid item xs={12}>
-                <Button
-                  type="submit"
-                  fullWidth
-                  variant="contained"
-                  color="primary"
-                  className={classes.submit}
-                >
-                  Sign Up
-                </Button>
-              </Grid>
-            </Grid>
-
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  <i class="fas fa-arrow-left"></i>&nbsp; Go Back
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"Already have an account? Sign in"}
-                </Link>
-              </Grid>
-            </Grid>
-            <Box mt={5}>
-              <Copyright />
-            </Box>
-          </form>
+              {errors.email && (
+                <Alert variant="danger">Please provide an email adress</Alert>
+              )}
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Username</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter username"
+                name="username"
+                ref={register}
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>phoneNumber</Form.Label>
+              <Form.Control
+                type="phoneNumber"
+                placeholder="Enter phonenumber"
+                name="phoneNumber"
+                ref={register}
+              />
+            </Form.Group>
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                name="password"
+                ref={register}
+              />
+            </Form.Group>
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label>Password Verification</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                name="passwordVerification"
+                ref={register}
+              />
+            </Form.Group>
+            <Form.Control
+              as="select"
+              className="mr-sm-2"
+              id="inlineFormCustomSelect"
+              custom
+              name="role"
+              ref={register({ required: true })}
+            >
+              <option value="">Choose Account type</option>
+              <option value="client">Client</option>
+              <option value="supplier">Supplier</option>
+            </Form.Control>
+            <Button
+              variant="primary"
+              type="submit"
+              disabled={formState.isSubmitting}
+            >
+              Submit
+            </Button>
+          </Form>
         </div>
       </Grid>
     </Grid>

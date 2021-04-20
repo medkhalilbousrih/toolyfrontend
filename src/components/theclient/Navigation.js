@@ -1,9 +1,7 @@
 import { Route, Switch, useRouteMatch } from "react-router-dom";
 import styled from "styled-components";
 import SupplierContainer from "./SupplierContainer";
-import AddTool from "./AddTool";
 import { NavLink } from "react-router-dom";
-import ToolsTrack from "./ToolsTrack";
 
 const Navigation = () => {
   let { path, url } = useRouteMatch();
@@ -19,35 +17,13 @@ const Navigation = () => {
             }}
           >
             {" "}
-            <i className="fas fa-id-card"> </i> Overview
+            <i class="fas fa-id-card"> </i> Overview
           </LinkStyle>
         </p>
         <p>
           <LinkStyle to={url}>
             {" "}
-            <i className="fas fa-comments"> </i> Messages
-          </LinkStyle>
-        </p>
-        <p>
-          <LinkStyle
-            to={`${url}/ToolsTrack`}
-            activeStyle={{
-              backgroundColor: "#ffc800",
-            }}
-          >
-            {" "}
-            <i className="fas fa-hammer"> </i> Tools Track
-          </LinkStyle>
-        </p>
-        <p>
-          <LinkStyle
-            to={`${url}/addtool`}
-            activeStyle={{
-              backgroundColor: "#ffc800",
-            }}
-          >
-            {" "}
-            <i className="fas fa-plus-square"> </i> Add Tool
+            <i class="fas fa-comments"> </i> Messages
           </LinkStyle>
         </p>
       </SupNav>
@@ -55,12 +31,6 @@ const Navigation = () => {
       <Switch>
         <Route exact path={path}>
           <SupplierContainer />
-        </Route>
-        <Route path={`${path}/addtool`}>
-          <AddTool />
-        </Route>
-        <Route path={`${path}/ToolsTrack`}>
-          <ToolsTrack />
         </Route>
       </Switch>
     </>

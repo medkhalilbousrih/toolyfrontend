@@ -1,93 +1,19 @@
 import styled from "styled-components";
 import { Card, Button } from "react-bootstrap";
-const Tool = () => {
+const Tool = ({ data }) => {
   return (
-    <>
-      <CARD>
-        <Card.Img variant="top" src="/Images/aymen.jpg" />
-        <CardBody>
-          <Card.Title>Tool Name</Card.Title>
-          <Card.Text>Category</Card.Text>
-          <Card.Text>Price: 30 Dinars</Card.Text>
-        </CardBody>
-        <BtnDiv>
-          <Btn variant="outline-success">update</Btn>
-          <Btn variant="outline-danger">delete</Btn>
-        </BtnDiv>
-      </CARD>
-      <CARD>
-        <Card.Img variant="top" src="/Images/aymen.jpg" />
-        <CardBody>
-          <Card.Title>Tool Name</Card.Title>
-          <Card.Text>Category</Card.Text>
-          <Card.Text>Price: 30 Dinars</Card.Text>
-        </CardBody>
-        <BtnDiv>
-          <Btn variant="outline-success">update</Btn>
-          <Btn variant="outline-danger">delete</Btn>
-        </BtnDiv>
-      </CARD>
-      <CARD>
-        <Card.Img variant="top" src="/Images/aymen.jpg" />
-        <CardBody>
-          <Card.Title>Tool Name</Card.Title>
-          <Card.Text>Category</Card.Text>
-          <Card.Text>Price: 30 Dinars</Card.Text>
-        </CardBody>
-        <BtnDiv>
-          <Btn variant="outline-success">update</Btn>
-          <Btn variant="outline-danger">delete</Btn>
-        </BtnDiv>
-      </CARD>
-      <CARD>
-        <Card.Img variant="top" src="/Images/aymen.jpg" />
-        <CardBody>
-          <Card.Title>Tool Name</Card.Title>
-          <Card.Text>Category</Card.Text>
-          <Card.Text>Price: 30 Dinars</Card.Text>
-        </CardBody>
-        <BtnDiv>
-          <Btn variant="outline-success">update</Btn>
-          <Btn variant="outline-danger">delete</Btn>
-        </BtnDiv>
-      </CARD>
-      <CARD>
-        <Card.Img variant="top" src="/Images/aymen.jpg" />
-        <CardBody>
-          <Card.Title>Tool Name</Card.Title>
-          <Card.Text>Category</Card.Text>
-          <Card.Text>Price: 30 Dinars</Card.Text>
-        </CardBody>
-        <BtnDiv>
-          <Btn variant="outline-success">update</Btn>
-          <Btn variant="outline-danger">delete</Btn>
-        </BtnDiv>
-      </CARD>
-      <CARD>
-        <Card.Img variant="top" src="/Images/aymen.jpg" />
-        <CardBody>
-          <Card.Title>Tool Name</Card.Title>
-          <Card.Text>Category</Card.Text>
-          <Card.Text>Price: 30 Dinars</Card.Text>
-        </CardBody>
-        <BtnDiv>
-          <Btn variant="outline-success">update</Btn>
-          <Btn variant="outline-danger">delete</Btn>
-        </BtnDiv>
-      </CARD>
-      <CARD>
-        <Card.Img variant="top" src="/Images/aymen.jpg" />
-        <CardBody>
-          <Card.Title>Tool Name</Card.Title>
-          <Card.Text>Category</Card.Text>
-          <Card.Text>Price: 30 Dinars</Card.Text>
-        </CardBody>
-        <BtnDiv>
-          <Btn variant="outline-success">update</Btn>
-          <Btn variant="outline-danger">delete</Btn>
-        </BtnDiv>
-      </CARD>
-    </>
+    <CARD>
+      <Card.Img variant="top" src="/Images/aymen.jpg" />
+      <CardBody>
+        <Card.Title>{data.name}</Card.Title>
+        <Card.Text>{data.category}</Card.Text>
+        <Card.Text>{data.price}</Card.Text>
+      </CardBody>
+      <BtnDiv>
+        <Btn variant="outline-success">update</Btn>
+        <Btn variant="outline-danger">delete</Btn>
+      </BtnDiv>
+    </CARD>
   );
 };
 

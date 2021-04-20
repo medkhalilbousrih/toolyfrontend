@@ -1,8 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { makeStyles } from "@material-ui/core/styles";
-
 import Button from "@material-ui/core/Button";
+import { useContext } from "react";
+import { RoleContext } from "../../contexts/RoleContext";
 import "./Header.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -35,9 +36,16 @@ const useStyles = makeStyles((theme) => ({
 const MainNavbar = () => {
   const classes = useStyles();
   const location = useLocation();
+  const [role, setRole] = useContext(RoleContext);
+
+  const logout = () => {
+    setRole(null);
+    window.localStorage.clear();
+  };
+
   return (
-    location.pathname !== "/Signup" &&
-    location.pathname !== "/SignIn" && (
+    location.pathname !== "/login" &&
+    location.pathname !== "/signup" && (
       <>
         <Contact>
           <div>Call Tooly: 99 999 999</div>
@@ -46,57 +54,63 @@ const MainNavbar = () => {
             <i className="fab fa-twitter-square fa-lg"></i>
             <i className="fab fa-instagram-square fa-lg"></i>
           </div>
-          <div className="logbuttons">
-            <Link to="/Signup" className="ccwhiteee">
-              <Button
-                type="submit"
-                fullWidth
-                variant="outlined"
-                color="primary"
-                className={classes.submit2}
-              >
-                Sign Up
-              </Button>
-            </Link>
-            &nbsp;&nbsp;
-            <Link to="/SignIn" className="ccblacc">
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-                className={classes.submit}
-              >
-                Log In
-              </Button>
-            </Link>
-          </div>
+          {!role ? (
+            <div className="logbuttons">
+              <Link to="/signup" className="ccwhiteee">
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="outlined"
+                  color="primary"
+                  className={classes.submit2}
+                >
+                  Sign Up
+                </Button>
+              </Link>
+              &nbsp;&nbsp;
+              <Link to="/login" className="ccblacc">
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  color="primary"
+                  className={classes.submit}
+                >
+                  Log In
+                </Button>
+              </Link>
+            </div>
+          ) : (
+            <Button
+              onClick={logout}
+              fullWidth
+              variant="outlined"
+              color="primary"
+              className={classes.submit2}
+            >
+              Signout
+            </Button>
+          )}
         </Contact>
         <Nav>
           <div>
             <img src="/logo.png" alt="logo" />
           </div>
           <div>
-            <Link to="/thesupplier">Home</Link>
-            &nbsp;&nbsp;
-            <Link to="/catalogue">Catalogue</Link>
+            <Link to="/catalogue">Home</Link>
             &nbsp;&nbsp;
             <Link to="/about">Contat-Us</Link>
-            &nbsp;&nbsp;
-            <Link to="/about">F.A.Q ?</Link>
           </div>
-          <div>
-            <i class="fas fa-cart-arrow-down"></i>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <Link to="/client">
-              <i class="fas fa-user-plus"></i>
-            </Link>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <Link to="/thesupplier">
-              <i class="fas fa-user-astronaut"></i>
-            </Link>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          </div>
+          {role && (
+            <div>
+              <i className="fas fa-cart-arrow-down fa-2x"></i>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <StyledLink to="/profile">
+                <img src="/uploads/avatar.png" />
+                MKB
+              </StyledLink>
+            </div>
+          )}
         </Nav>
         <Sep></Sep>
       </>
@@ -143,4 +157,10 @@ const Sep = styled.div`
   box-shadow: 0px 1px 5px grey;
 `;
 
+const StyledLink = styled(Link)`
+  img {
+    max-width: 100%;
+    border-radius: 50%;
+  }
+`;
 export default MainNavbar;
