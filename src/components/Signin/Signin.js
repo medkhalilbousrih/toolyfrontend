@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
+import Button from "react-bootstrap/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
@@ -13,7 +13,7 @@ import { Form } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { useContext } from "react";
 import { RoleContext } from "../../contexts/RoleContext";
-
+import "./Signin.css";
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "100vh",
@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "white",
     height: "35rem",
     marginTop: "7rem",
-    marginLeft: "7rem",
+
     borderRadius: "0.5rem",
   },
   paper: {
@@ -84,8 +84,8 @@ export default function SignIn() {
       <Grid
         item
         xs={12}
-        sm={6}
-        md={3}
+        sm={8}
+        md={4}
         component={Paper}
         elevation={6}
         square
@@ -99,9 +99,9 @@ export default function SignIn() {
             Sign in
           </Typography>
 
-          <Form onSubmit={handleSubmit(onSubmit)}>
+          <Form className="signinform" onSubmit={handleSubmit(onSubmit)}>
             <Form.Group controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
+              <Form.Label>UserName</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter username"
@@ -116,13 +116,13 @@ export default function SignIn() {
             <Form.Group controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
               <Form.Control
-                type="text"
+                type="password"
                 placeholder="Password"
                 ref={register}
                 name="password"
               />
             </Form.Group>
-            <Button variant="primary" type="submit">
+            <Button className="btnsignin" variant="primary" type="submit">
               Submit
             </Button>
           </Form>

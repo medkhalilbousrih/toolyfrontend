@@ -81,33 +81,46 @@ const MainNavbar = () => {
               </Link>
             </div>
           ) : (
-            <Button
-              onClick={logout}
-              fullWidth
-              variant="outlined"
-              color="primary"
-              className={classes.submit2}
-            >
-              Signout
-            </Button>
+            <div>
+              <Button
+                onClick={logout}
+                fullWidth
+                variant="outlined"
+                color="primary"
+                className={classes.submit2}
+              >
+                Signout
+              </Button>
+            </div>
           )}
         </Contact>
         <Nav>
           <div>
             <img src="/logo.png" alt="logo" />
           </div>
-          <div>
-            <Link to="/catalogue">Home</Link>
-            &nbsp;&nbsp;
-            <Link to="/about">Contat-Us</Link>
+          <div className="testnavlevels">
+            <Link to="/" style={{ color: "black" }}>
+              Home
+            </Link>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <Link to="/catalogue" style={{ color: "black" }}>
+              Tools
+            </Link>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <Link style={{ color: "black" }} to="/about">
+              Contat-Us
+            </Link>
           </div>
           {role && (
             <div>
               <i className="fas fa-cart-arrow-down fa-2x"></i>
+              <a style={{ color: "black", fontFamily: "Roboto" }}>&nbsp;Cart</a>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <StyledLink to="/profile">
                 <img src="/uploads/avatar.png" />
-                MKB
+                <a style={{ color: "black", fontFamily: "Roboto" }}>
+                  &nbsp;P.Name
+                </a>
               </StyledLink>
             </div>
           )}
@@ -126,7 +139,7 @@ const Contact = styled.div`
   background-color: #353535;
   height: 2rem;
   div {
-    margin: 0 1rem;
+    margin: 1rem;
     margin-top: 5px;
     color: white;
     i {
@@ -148,6 +161,9 @@ const Nav = styled.div`
     img {
       max-height: 80%;
       margin-top: 0 rem;
+    }
+    i {
+      font-size: 1rem;
     }
   }
 `;

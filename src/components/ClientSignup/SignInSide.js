@@ -85,7 +85,8 @@ export default function SignInSide() {
               AND PICK OR RENT A TOOL
             </Typography>
           </TypoPhrase>
-          <Form onSubmit={handleSubmit(onSubmit)}>
+
+          <Form className="testform" onSubmit={handleSubmit(onSubmit)}>
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control
@@ -99,7 +100,7 @@ export default function SignInSide() {
                 <Alert variant="danger">Please provide an email adress</Alert>
               )}
             </Form.Group>
-            <Form.Group>
+            <Form.Group className="testfromgroupe">
               <Form.Label>Username</Form.Label>
               <Form.Control
                 type="text"
@@ -108,8 +109,8 @@ export default function SignInSide() {
                 ref={register}
               />
             </Form.Group>
-            <Form.Group>
-              <Form.Label>phoneNumber</Form.Label>
+            <Form.Group className="testfromgroupe">
+              <Form.Label>Phone Number</Form.Label>
               <Form.Control
                 type="phoneNumber"
                 placeholder="Enter phonenumber"
@@ -117,7 +118,10 @@ export default function SignInSide() {
                 ref={register}
               />
             </Form.Group>
-            <Form.Group controlId="formBasicPassword">
+            <Form.Group
+              className="testfromgroupe"
+              controlId="formBasicPassword"
+            >
               <Form.Label>Password</Form.Label>
               <Form.Control
                 type="password"
@@ -126,7 +130,10 @@ export default function SignInSide() {
                 ref={register}
               />
             </Form.Group>
-            <Form.Group controlId="formBasicPassword">
+            <Form.Group
+              className="testfromgroupe"
+              controlId="formBasicPassword"
+            >
               <Form.Label>Password Verification</Form.Label>
               <Form.Control
                 type="password"
@@ -135,19 +142,24 @@ export default function SignInSide() {
                 ref={register}
               />
             </Form.Group>
-            <Form.Control
-              as="select"
-              className="mr-sm-2"
-              id="inlineFormCustomSelect"
-              custom
-              name="role"
-              ref={register({ required: true })}
-            >
-              <option value="">Choose Account type</option>
-              <option value="client">Client</option>
-              <option value="supplier">Supplier</option>
-            </Form.Control>
+            <Form.Group className="testfromgroupe">
+              <Form.Label>User Type</Form.Label>
+              <Form.Control
+                as="select"
+                className="mr-sm-2"
+                id="inlineFormCustomSelect"
+                custom
+                name="role"
+                ref={register({ required: true })}
+              >
+                <option value="">Choose Account type</option>
+                <option value="client">Client</option>
+                <option value="supplier">Supplier</option>
+              </Form.Control>
+            </Form.Group>
+
             <Button
+              className="signupbtncolor"
               variant="primary"
               type="submit"
               disabled={formState.isSubmitting}
