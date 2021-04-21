@@ -2,3 +2,22 @@
   color: #ffc800;
   font-weight: bold;
 }
+
+.testform {
+  margin-top: 3rem;
+  width: 100%;
+}
+
+.testfromgroupe {
+  padding-top: 1rem;
+}
+.signupbtncolor {
+  background-color: #ffc800;
+  color: black;
+  border: transparent;
+  width: 100%;
+}
+.signupbtncolor:hover {
+  background-color: #353535;
+  color: white;
+}
