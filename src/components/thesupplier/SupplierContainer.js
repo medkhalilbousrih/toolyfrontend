@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import ProfileInfo from "./ProfileInfo";
 import Tool from "./Tool";
-import Stats from "./stats";
 import supplierService from "./services/supplier";
 import { useEffect, useState } from "react";
 
@@ -16,12 +15,13 @@ const SupplierContainer = () => {
       })
       .catch((err) => console.log(err.response));
   }, []);
+
   return (
     <SupContainer>
-      <ProfileInfo />
-      <Stats />
+      <ProfileInfo data={info} />
       <Tools>
-        {info.tools && info.tools.map((tool) => <Tool data={tool} />)}
+        {info.tools &&
+          info.tools.map((tool, index) => <Tool key={index} data={tool} />)}
       </Tools>
     </SupContainer>
   );

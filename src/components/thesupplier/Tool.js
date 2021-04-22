@@ -3,7 +3,7 @@ import { Card, Button } from "react-bootstrap";
 const Tool = ({ data }) => {
   return (
     <CARD>
-      <Card.Img variant="top" src="/Images/aymen.jpg" />
+      <Card.Img variant="top" src={`${data.imageUrls[0]}`} />
       <CardBody>
         <Card.Title>{data.name}</Card.Title>
         <Card.Text>{data.category}</Card.Text>
@@ -23,10 +23,15 @@ const BtnDiv = styled.div`
 `;
 const CARD = styled(Card)`
   margin: 0.5rem 0.5rem 0.5rem 0rem;
-  width: 13.3rem;
+  width: 15rem;
+  height: 20rem;
+  img {
+    max-width: 100%;
+    height: 10rem;
+  }
 `;
 const Btn = styled(Button)`
-  height: 1.5rem;
+  height: 2rem;
   font-size: 10px;
 `;
 

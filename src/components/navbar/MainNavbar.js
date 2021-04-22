@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
@@ -37,9 +37,11 @@ const MainNavbar = () => {
   const classes = useStyles();
   const location = useLocation();
   const [role, setRole] = useContext(RoleContext);
+  const history = useHistory();
 
   const logout = () => {
     setRole(null);
+    history.push("/catalogue");
     window.localStorage.clear();
   };
 
@@ -107,19 +109,33 @@ const MainNavbar = () => {
               Tools
             </Link>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <Link style={{ color: "black" }} to="/about">
+            <Link to="/catalogue" style={{ color: "black" }} to="/about">
               Contat-Us
             </Link>
           </div>
           {role && (
             <div>
               <i className="fas fa-cart-arrow-down fa-2x"></i>
-              <a style={{ color: "black", fontFamily: "Roboto" }}>&nbsp;Cart</a>
+              <Link
+                to="/catalogue"
+                style={{ color: "black", fontFamily: "Roboto" }}
+              >
+                &nbsp;Cart
+              </Link>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <StyledLink to="/profile">
-                <img src="/uploads/avatar.png" />
+                <img
+                  src={`${
+                    JSON.parse(window.localStorage.getItem("connectedUser"))
+                      .avatar
+                  }`}
+                />
                 <a style={{ color: "black", fontFamily: "Roboto" }}>
-                  &nbsp;P.Name
+                  &nbsp;
+                  {
+                    JSON.parse(window.localStorage.getItem("connectedUser"))
+                      .username
+                  }
                 </a>
               </StyledLink>
             </div>

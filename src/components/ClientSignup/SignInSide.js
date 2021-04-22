@@ -58,10 +58,7 @@ export default function SignInSide() {
   const history = useHistory();
   const onSubmit = async (data) => {
     try {
-      await axios.post(
-        "https://tranquil-journey-35786.herokuapp.com/api/users",
-        data
-      );
+      await axios.post("/api/users", data);
       history.push("/login");
     } catch (exception) {
       console.log(exception.response);
@@ -81,7 +78,7 @@ export default function SignInSide() {
             </Typography>
           </TypoSign>
           <TypoPhrase>
-            <Typography className="TypoPhrase" component="h7" variant="h7">
+            <Typography className="TypoPhrase" component="h6" variant="h6">
               AND PICK OR RENT A TOOL
             </Typography>
           </TypoPhrase>
@@ -118,10 +115,7 @@ export default function SignInSide() {
                 ref={register}
               />
             </Form.Group>
-            <Form.Group
-              className="testfromgroupe"
-              controlId="formBasicPassword"
-            >
+            <Form.Group className="testfromgroupe">
               <Form.Label>Password</Form.Label>
               <Form.Control
                 type="password"
@@ -130,10 +124,7 @@ export default function SignInSide() {
                 ref={register}
               />
             </Form.Group>
-            <Form.Group
-              className="testfromgroupe"
-              controlId="formBasicPassword"
-            >
+            <Form.Group className="testfromgroupe">
               <Form.Label>Password Verification</Form.Label>
               <Form.Control
                 type="password"

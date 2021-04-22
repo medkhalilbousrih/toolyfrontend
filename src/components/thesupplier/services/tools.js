@@ -1,21 +1,22 @@
 import axios from "axios";
 
-const baseUrl = "https://tranquil-journey-35786.herokuapp.com/api/tools";
+const baseUrl = "/api/tools";
 
-const connectedUser = window.localStorage.getItem("connectedUser");
-let config = null;
-if (connectedUser) {
-  const user = JSON.parse(connectedUser);
-  config = {
-    headers: {
-      Authorization: `Bearer ${user.token}`,
-      "content-type": "multipart/form-data",
-    },
-  };
-}
+const config = () => {
+  const connectedUser = window.localStorage.getItem("connectedUser");
+  if (connectedUser) {
+    const user = JSON.parse(connectedUser);
+    return {
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+        "content-type": "multipart/form-data",
+      },
+    };
+  }
+};
 
 const create = async (tool) => {
-  const newTool = await axios.post(baseUrl, tool, config);
+  const newTool = await axios.post(baseUrl, tool, config());
   return newTool.data;
 };
 

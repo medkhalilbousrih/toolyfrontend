@@ -1,4 +1,4 @@
-import React from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "react-bootstrap/Button";
@@ -9,9 +9,8 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { useForm } from "react-hook-form";
-import { Form } from "react-bootstrap";
+import { Form, Alert } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
-import { useContext } from "react";
 import { RoleContext } from "../../contexts/RoleContext";
 import "./Signin.css";
 const useStyles = makeStyles((theme) => ({
@@ -59,31 +58,29 @@ export default function SignIn() {
   const classes = useStyles();
   const { register, handleSubmit } = useForm();
   const [role, setRole] = useContext(RoleContext);
+  const [msg, setMsg] = useState(null);
   const history = useHistory();
 
   const onSubmit = async (data) => {
     try {
-      const connectedUser = await axios.post(
-        "https://tranquil-journey-35786.herokuapp.com/api/login",
-        data
-      );
+      const connectedUser = await axios.post("/api/login", data);
       setRole(connectedUser.data.role);
       window.localStorage.setItem(
         "connectedUser",
         JSON.stringify(connectedUser.data)
       );
-      history.push("/profile");
+      history.push("/catalogue");
     } catch (exception) {
       console.log(exception.response);
+      setMsg(exception.response.data);
     }
   };
   return (
-    <Grid container xs={false} component="main" className={classes.root}>
+    <Grid container component="main" className={classes.root}>
       <CssBaseline />
 
       <Grid
         item
-        xs={12}
         sm={8}
         md={4}
         component={Paper}
@@ -100,19 +97,15 @@ export default function SignIn() {
           </Typography>
 
           <Form className="signinform" onSubmit={handleSubmit(onSubmit)}>
-            <Form.Group controlId="formBasicEmail">
-              <Form.Label>UserName</Form.Label>
+            <Form.Group>
+              <Form.Label>Username</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter username"
                 ref={register}
                 name="username"
               />
-              <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
-              </Form.Text>
             </Form.Group>
-
             <Form.Group controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
               <Form.Control
@@ -125,6 +118,7 @@ export default function SignIn() {
             <Button className="btnsignin" variant="primary" type="submit">
               Submit
             </Button>
+            {msg && <Alert variant="danger">{msg}</Alert>}
           </Form>
         </div>
       </Grid>

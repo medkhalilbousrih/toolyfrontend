@@ -1,14 +1,24 @@
 import styled from "styled-components";
-import Image from "react-bootstrap/Image";
 
-const ProfileInfo = () => {
+const ProfileInfo = ({ data }) => {
+  const Img = styled.div`
+    width: 12rem;
+    height: 12rem;
+    margin-left: -5rem;
+    border-radius: 50%;
+    border: 5px solid #353535;
+    background-image: url("${data.imageUrl}");
+    background-position: center;
+    background-size: cover;
+    margin-bottom: -3.5rem;
+    z-index: 1;
+  `;
+
   return (
     <Profile>
-      <Img>
-        <Image src="/Images/aymen.jpg" fluid roundedCircle />
-      </Img>
+      <Img></Img>
       <Info>
-        <div className="">Total Owned Tools: 0</div>
+        <div className="">Total Owned Tools: </div>
 
         <div className="">Tools being rented right now: 0</div>
 
@@ -40,21 +50,6 @@ const Info = styled.div`
   margin-left: 1rem;
   font-weight: lighter;
   font-family: "Open Sans";
-`;
-
-const Img = styled.div`
-  width: 12rem;
-  height: 12rem;
-  background-color: #353535;
-  border: 5px solid #353535;
-  border-radius: 50%;
-  margin-left: -5rem;
-  margin-bottom: -3.5rem;
-  z-index: 1;
-  img {
-    max-width: 100%;
-    border-radius: 50%;
-  }
 `;
 
 export default ProfileInfo;
