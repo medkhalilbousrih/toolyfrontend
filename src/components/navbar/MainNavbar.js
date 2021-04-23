@@ -125,6 +125,7 @@ const MainNavbar = () => {
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <StyledLink to="/profile">
                 <img
+                  className="persoimgnav"
                   src={`${
                     JSON.parse(window.localStorage.getItem("connectedUser"))
                       .avatar

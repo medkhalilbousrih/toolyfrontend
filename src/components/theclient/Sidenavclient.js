@@ -1,9 +1,9 @@
 import { Route, Switch, useRouteMatch } from "react-router-dom";
 import styled from "styled-components";
-import SupplierContainer from "./SupplierContainer";
 import { NavLink } from "react-router-dom";
+import ClientContainer from "./ClientContainer";
 
-const Navigation = () => {
+const Sidenavclient = () => {
   let { path, url } = useRouteMatch();
   return (
     <>
@@ -14,23 +14,24 @@ const Navigation = () => {
             to={url}
             activeStyle={{
               backgroundColor: "#ffc800",
+              width: "100%",
             }}
           >
             {" "}
-            <i class="fas fa-id-card"> </i> Overview
+            <i className="fas fa-id-card"> </i> Overview
           </LinkStyle>
         </p>
         <p>
           <LinkStyle to={url}>
             {" "}
-            <i class="fas fa-comments"> </i> Messages
+            <i className="fas fa-comments"> </i> Messages
           </LinkStyle>
         </p>
       </SupNav>
       <Separator></Separator>
       <Switch>
         <Route exact path={path}>
-          <SupplierContainer />
+          <ClientContainer />
         </Route>
       </Switch>
     </>
@@ -38,7 +39,7 @@ const Navigation = () => {
 };
 
 const SupNav = styled.div`
-  width: 17%;
+  width: 15%;
   margin-top: 6rem;
   color: #000000;
   font-family: "Open Sans";
@@ -63,4 +64,4 @@ const LinkStyle = styled(NavLink)`
 const Separator = styled.div`
   border-right: 0.1rem solid rgb(235, 235, 235);
 `;
-export default Navigation;
+export default Sidenavclient;

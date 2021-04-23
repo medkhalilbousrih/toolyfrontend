@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import { RoleContext } from "../../contexts/RoleContext";
-import Supplier from "../thesupplier/Supplier";
 import Client from "../theclient/client";
+
+import Supplier from "../thesupplier/Supplier";
 
 const Profile = () => {
   const [role, setRole] = useContext(RoleContext);
