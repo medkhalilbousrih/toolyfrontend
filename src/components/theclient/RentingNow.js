@@ -1,7 +1,7 @@
 const Rentingnow = () => {
   return (
     <>
-      <h4>Renting now</h4>
+      <h4>Renting Now</h4>
     </>
   );
 };
