@@ -1,6 +1,5 @@
 import styled from "styled-components";
-
-import { NavLink } from "react-router-dom";
+import { NavLink, Redirect } from "react-router-dom";
 import Rentingnow from "./RentingNow";
 import BoughtItems from "./BoughtItems";
 import RentedItems from "./RentedItems";
@@ -21,7 +20,7 @@ const ClientHistory = () => {
           <LittleYellowBox>
             <div>
               <LinkStyle
-                to={`${url}`}
+                to={`${url}/Rentingnow`}
                 activeStyle={{
                   backgroundColor: "#353535",
                   color: "white",
@@ -81,6 +80,9 @@ const ClientHistory = () => {
           </FilterYellowBox>
           <BigYellowBox>
             <Route exact path={path}>
+              <Redirect to={`${path}/Rentingnow`} />
+            </Route>
+            <Route exact path={`${path}/Rentingnow`}>
               <Rentingnow />
             </Route>
             <Route path={`${path}/RentedItems`}>
@@ -163,9 +165,9 @@ const BigYellowBox = styled.div`
   margin-left: 2rem;
 `;
 const LinkStyle = styled(NavLink)`
-  display: block;
+  
   color: Black;
-  margin-bottom: 0;
+  
   margin-right: 1rem;
   border-radius: 5px;
   padding: 0.5rem 1rem;
