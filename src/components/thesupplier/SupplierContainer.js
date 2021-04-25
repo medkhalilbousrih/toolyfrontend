@@ -3,9 +3,10 @@ import ProfileInfo from "./ProfileInfo";
 import Tool from "./Tool";
 import supplierService from "./services/supplier";
 import { useEffect, useState } from "react";
+import Spinner from "./Spinner";
 
 const SupplierContainer = () => {
-  const [info, setInfo] = useState({});
+  const [info, setInfo] = useState(null);
   useEffect(() => {
     supplierService
       .getAll()
@@ -15,13 +16,16 @@ const SupplierContainer = () => {
       })
       .catch((err) => console.log(err.response));
   }, []);
-
+  if (!info) {
+    return <Spinner />;
+  }
   return (
     <SupContainer>
       <ProfileInfo data={info} />
       <Tools>
-        {info.tools &&
-          info.tools.map((tool, index) => <Tool key={index} data={tool} />)}
+        {info.tools.map((tool, index) => (
+          <Tool key={index} data={tool} />
+        ))}
       </Tools>
     </SupContainer>
   );
@@ -30,11 +34,11 @@ const Tools = styled.div`
   display: flex;
   width: 100%;
   flex-flow: row wrap;
-  margin: 4rem 2rem 4rem -1rem;
+  margin-bottom: 5rem;
 `;
 
 const SupContainer = styled.div`
   width: 80%;
-  margin-left: auto;
+  margin: auto;
 `;
 export default SupplierContainer;

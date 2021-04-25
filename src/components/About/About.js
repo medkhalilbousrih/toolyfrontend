@@ -12,7 +12,7 @@ const About = () => {
       <div className="back">
         <h2 className="contactus">Contact Us</h2>
       </div>
-      <bloc className="bloc">
+      <div className="bloc">
         <div className="bloc1">
           <Grid className="ktibabloc1">
             <Grid item>
@@ -26,14 +26,14 @@ const About = () => {
               </div>
               <div>
                 <div className="titregra">
-                  <i class="fas fa-phone"></i>
+                  <i className="fas fa-phone"></i>
                   &nbsp;&nbsp;Phone
                 </div>
                 <div className="soustext">+216 99 999 999</div>
               </div>
               <div>
                 <div className="titregra">
-                  <i class="fas fa-envelope"></i>
+                  <i className="fas fa-envelope"></i>
                   &nbsp;&nbsp;Email
                 </div>
                 <div className="soustext">Tooly@tooly.com</div>
@@ -53,7 +53,6 @@ const About = () => {
             <Grid item>
               <TextField
                 className="textfieldbloc2"
-                id="outlined-basic"
                 label="Name"
                 variant="outlined"
                 style={{ width: 350 }}
@@ -63,7 +62,6 @@ const About = () => {
 
             <Grid item>
               <TextField
-                id="outlined-basic"
                 label="Email"
                 variant="outlined"
                 style={{ width: 350 }}
@@ -86,7 +84,7 @@ const About = () => {
             Send Message
           </Button>
         </div>
-      </bloc>
+      </div>
       <FAQ />
     </>
   );
