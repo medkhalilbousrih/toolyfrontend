@@ -64,11 +64,11 @@ export default function SignIn() {
   const onSubmit = async (data) => {
     try {
       const connectedUser = await axios.post("/api/login", data);
-      setRole(connectedUser.data.role);
       window.localStorage.setItem(
         "connectedUser",
         JSON.stringify(connectedUser.data)
       );
+      setRole(connectedUser.data.role);
       history.push("/catalogue");
     } catch (exception) {
       console.log(exception.response);

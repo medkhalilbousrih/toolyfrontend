@@ -1,24 +1,13 @@
 import styled from "styled-components";
 
 const ProfileInfo = ({ data }) => {
-  const Img = styled.div`
-    width: 12rem;
-    height: 12rem;
-    margin-left: -5rem;
-    border-radius: 50%;
-    border: 5px solid #353535;
-    background-image: url("${data.imageUrl}");
-    background-position: center;
-    background-size: cover;
-    margin-bottom: -3.5rem;
-    z-index: 1;
-  `;
-
   return (
     <Profile>
-      <Img></Img>
+      <p>{data.username}</p>
+
+      <Img src={`${data.imageUrl}`} />
       <Info>
-        <div className="">Total Owned Tools: </div>
+        <div className="">Total Owned Tools: {data.tools.length}</div>
 
         <div className="">Tools being rented right now: 0</div>
 
@@ -28,6 +17,15 @@ const ProfileInfo = ({ data }) => {
   );
 };
 
+const Img = styled.img`
+  width: 12rem;
+  height: 12rem;
+  margin-left: -5rem;
+  border-radius: 50%;
+  border: 5px solid #353535;
+  margin-bottom: -3.5rem;
+  z-index: 1;
+`;
 const Profile = styled.div`
   display: flex;
   flex-flow: column;
@@ -35,6 +33,7 @@ const Profile = styled.div`
   background-color: #ffc800;
   width: 80%;
   margin: 2rem auto;
+  margin-bottom: 5rem;
   height: 18rem;
   border-radius: 20px;
 `;

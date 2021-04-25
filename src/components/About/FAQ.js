@@ -65,7 +65,6 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: "3rem",
     textAlign: "center",
     fontWeight: "Roboto",
-    fontWeight: "normal",
     fontSize: "6rem",
     fontWeight: "600",
   },

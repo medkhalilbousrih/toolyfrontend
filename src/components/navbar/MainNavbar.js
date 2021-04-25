@@ -41,8 +41,8 @@ const MainNavbar = () => {
 
   const logout = () => {
     setRole(null);
-    history.push("/catalogue");
     window.localStorage.clear();
+    history.push("/catalogue");
   };
 
   return (
@@ -109,7 +109,7 @@ const MainNavbar = () => {
               Tools
             </Link>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <Link to="/catalogue" style={{ color: "black" }} to="/about">
+            <Link to="/about" style={{ color: "black" }}>
               Contat-Us
             </Link>
           </div>
@@ -131,13 +131,13 @@ const MainNavbar = () => {
                       .avatar
                   }`}
                 />
-                <a style={{ color: "black", fontFamily: "Roboto" }}>
+                <span style={{ color: "black", fontFamily: "Roboto" }}>
                   &nbsp;
                   {
                     JSON.parse(window.localStorage.getItem("connectedUser"))
                       .username
                   }
-                </a>
+                </span>
               </StyledLink>
             </div>
           )}

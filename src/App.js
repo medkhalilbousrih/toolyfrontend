@@ -12,9 +12,11 @@ import Catalogue from "./components/catalogue/Catalogue";
 import SignInSide from "./components/ClientSignup/SignInSide";
 import { useState, useEffect } from "react";
 import { RoleContext } from "./contexts/RoleContext";
-import Profile from "./components/profile/Profile";
+import Supplier from "./components/thesupplier/Supplier";
+import Client from "./components/theclient/client";
 import ProductCard from "./components/ProductPorfile/ProductCard";
 import ProductProfile from "./components/ProductPorfile/ProductProfile";
+
 const App = () => {
   const [role, setRole] = useState(null);
 
@@ -42,7 +44,13 @@ const App = () => {
               <Catalogue />
             </Route>
             <Route path="/profile">
-              <Profile />
+              {role === "supplier" ? <Supplier /> : <Client />}
+            </Route>
+            <Route path="/signup">
+              <Redirect to="/catalogue" />
+            </Route>
+            <Route path="/login">
+              <Redirect to="/catalogue" />
             </Route>
             <Route path="/product">
               <ProductProfile />
@@ -53,6 +61,9 @@ const App = () => {
             <Route exact path="/">
               <Redirect to="/catalogue" />
             </Route>
+            <Route path="/catalogue">
+              <Catalogue />
+            </Route>
             <Route path="/signup">
               <SignInSide />
             </Route>
@@ -61,9 +72,6 @@ const App = () => {
             </Route>
             <Route path="/about">
               <About />
-            </Route>
-            <Route path="/catalogue">
-              <Catalogue />
             </Route>
             <Route path="/profile">
               <Signin />
