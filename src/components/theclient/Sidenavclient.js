@@ -47,6 +47,7 @@ const SupNav = styled.div`
 
 const LinkStyle = styled(NavLink)`
   display: block;
+  width: "100%";
   color: black;
   margin-bottom: 0;
   margin-right: 1rem;
@@ -58,6 +59,7 @@ const LinkStyle = styled(NavLink)`
     underline: none;
     text-decoration: none;
     color: black;
+    width: "100%";
   }
 `;
 

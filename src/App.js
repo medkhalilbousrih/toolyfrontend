@@ -13,6 +13,8 @@ import SignInSide from "./components/ClientSignup/SignInSide";
 import { useState, useEffect } from "react";
 import { RoleContext } from "./contexts/RoleContext";
 import Profile from "./components/profile/Profile";
+import ProductCard from "./components/ProductPorfile/ProductCard";
+import ProductProfile from "./components/ProductPorfile/ProductProfile";
 const App = () => {
   const [role, setRole] = useState(null);
 
@@ -42,6 +44,9 @@ const App = () => {
             <Route path="/profile">
               <Profile />
             </Route>
+            <Route path="/product">
+              <ProductProfile />
+            </Route>
           </Switch>
         ) : (
           <Switch>
@@ -62,6 +67,9 @@ const App = () => {
             </Route>
             <Route path="/profile">
               <Signin />
+            </Route>
+            <Route path="/product">
+              <ProductProfile />
             </Route>
           </Switch>
         )}
