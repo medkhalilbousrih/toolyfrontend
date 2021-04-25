@@ -14,6 +14,8 @@ import { useState, useEffect } from "react";
 import { RoleContext } from "./contexts/RoleContext";
 import Supplier from "./components/thesupplier/Supplier";
 import Client from "./components/theclient/client";
+import ProductCard from "./components/ProductPorfile/ProductCard";
+import ProductProfile from "./components/ProductPorfile/ProductProfile";
 
 const App = () => {
   const [role, setRole] = useState(null);
@@ -50,6 +52,9 @@ const App = () => {
             <Route path="/login">
               <Redirect to="/catalogue" />
             </Route>
+            <Route path="/product">
+              <ProductProfile />
+            </Route>
           </Switch>
         ) : (
           <Switch>
@@ -70,6 +75,9 @@ const App = () => {
             </Route>
             <Route path="/profile">
               <Signin />
+            </Route>
+            <Route path="/product">
+              <ProductProfile />
             </Route>
           </Switch>
         )}
