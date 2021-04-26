@@ -8,13 +8,17 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import PriceCard from "./PriceCard";
+import SupplierCard from "./SupplierCard";
 
 const useStyles = makeStyles({
   root: {
     maxWidth: 300,
+    borderRadius: 0,
   },
   rootcard2: {
-    minWidth: 500,
+    maxWidth: 550,
+    minWidth: 550,
+    borderRadius: 0,
   },
   rootcard3: {
     minWidth: 432,
@@ -56,14 +60,14 @@ const ProductCard = () => {
         <a>Tool Name & Model : Lorem ipsum dolor sit amet</a>
       </Title>
       <CC>
-        <Card className={classes.root}>
+        <Card className={classes.root} variant="outlined">
           <CardActionArea>
             <CardMedia
               className={classes.toolimage}
               component="img"
               alt="Taswira"
               height="300"
-              image="/Images/aymen.jpg"
+              image="/Images/hammer.PNG"
               title="Contemplative Reptile"
             />
           </CardActionArea>
@@ -158,6 +162,7 @@ const ProductCard = () => {
             <i class="fab fa-facebook-square"></i>
           </CardActions>
         </Card>
+
         <PriceCard />
       </CC>
     </>
@@ -168,12 +173,14 @@ const Title = styled.div`
   font-family: Roboto;
   font-weight: 500;
   font-size: 20px;
-  margin-top: 2rem;
+  margin-top: 3.5rem;
   color: black;
+  margin-bottom: 0.7rem;
 `;
 const CC = styled.div`
   display: flex;
   flex-wrap: wrap;
+  margin-top: 1.5rem;
 `;
 const Flex1 = styled.div`
   display: flex;

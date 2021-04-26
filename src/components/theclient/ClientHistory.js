@@ -159,8 +159,8 @@ const BigYellowBox = styled.div`
   border-radius: 0px 0px 5px 5px;
   background: #ffc800;
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: center;
   font-weight: 600;
   margin-left: 2rem;
 `;
