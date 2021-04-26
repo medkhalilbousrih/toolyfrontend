@@ -1,20 +1,16 @@
 import styled from "styled-components";
 import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { useState } from "react";
-import { red } from "@material-ui/core/colors";
 import Button from "react-bootstrap/Button";
 
 const useStyles = makeStyles({
   rootcard3: {
-    minWidth: 432,
-    maxWidth: 432,
+    minWidth: 382,
+    maxWidth: 382,
+    borderRadius: 0,
   },
 
   title3: {
@@ -149,4 +145,5 @@ const IncDec = styled.div`
     }
   }
 `;
+
 export default PricedCard;
