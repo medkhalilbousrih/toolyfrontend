@@ -52,7 +52,7 @@ const App = () => {
             <Route path="/login">
               <Redirect to="/catalogue" />
             </Route>
-            <Route path="/product">
+            <Route path="/product/:id">
               <ProductProfile />
             </Route>
           </Switch>
@@ -76,7 +76,7 @@ const App = () => {
             <Route path="/profile">
               <Signin />
             </Route>
-            <Route path="/product">
+            <Route path="/product/:id">
               <ProductProfile />
             </Route>
           </Switch>
