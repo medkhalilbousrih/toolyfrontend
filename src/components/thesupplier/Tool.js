@@ -14,6 +14,13 @@ const useStyles = makeStyles({
     maxWidth: 275,
     margin: 10,
   },
+  cover: {
+    width: 220,
+    height: 220,
+  },
+  content: {
+    backgroundColor: "#ffc850",
+  },
 });
 const Tool = ({ data }) => {
   const classes = useStyles();
@@ -28,17 +35,22 @@ const Tool = ({ data }) => {
     >
       <CardActionArea>
         <CardMedia
+          className={classes.cover}
           component="img"
-          alt="tool"
+          alt={data.name}
           height="220"
+          width="220"
           image={`${data.imageUrls[0]}`}
         />
-        <CardContent>
+        <CardContent className={classes.content}>
           <Typography gutterBottom variant="h5" component="h2">
             {data.name}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {data.description}
+          <Typography variant="body2" color="textPrimary" component="p">
+            {data.category}
+          </Typography>
+          <Typography variant="body2" color="textPrimary" component="p">
+            {data.price} Dinars
           </Typography>
         </CardContent>
       </CardActionArea>
