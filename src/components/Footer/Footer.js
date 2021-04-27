@@ -42,7 +42,7 @@ const Footer = () => {
           </div>
           <div className="row ">
             <div className="cadreJ">
-              <p className="aa ppp ">© 2018. All Rights Reserved.</p>
+              <p className="aa ppp ">© 2021. All Rights Reserved. BinaryWeb</p>
             </div>
           </div>
         </div>

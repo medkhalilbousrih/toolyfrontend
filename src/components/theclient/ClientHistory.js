@@ -131,6 +131,7 @@ const LittleYellowBox = styled.div`
   font-weight: 600;
   margin-left: 2rem;
   flex-wrap: wrap;
+  width: 70%;
 `;
 
 const FilterYellowBox = styled.div`

@@ -16,6 +16,7 @@ import Supplier from "./components/thesupplier/Supplier";
 import Client from "./components/theclient/client";
 import ProductCard from "./components/ProductPorfile/ProductCard";
 import ProductProfile from "./components/ProductPorfile/ProductProfile";
+import Cart from "./components/Cart/Cart";
 
 const App = () => {
   const [role, setRole] = useState(null);
@@ -55,6 +56,9 @@ const App = () => {
             <Route path="/product/:id">
               <ProductProfile />
             </Route>
+            <Route path="/Cart">
+              <Cart />
+            </Route>
           </Switch>
         ) : (
           <Switch>
@@ -78,6 +82,9 @@ const App = () => {
             </Route>
             <Route path="/product/:id">
               <ProductProfile />
+            </Route>
+            <Route path="/Cart">
+              <Cart />
             </Route>
           </Switch>
         )}
