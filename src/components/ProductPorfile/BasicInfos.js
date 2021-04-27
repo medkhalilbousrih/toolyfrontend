@@ -10,6 +10,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import PriceCard from "./PriceCard";
 import SupplierCard from "./SupplierCard";
+import productService from "./services/product";
 
 const useStyles = makeStyles({
   root: {
@@ -55,6 +56,7 @@ const useStyles = makeStyles({
 
 const BasicInfos = () => {
   const classes = useStyles();
+
   return (
     <>
       <AllContainer>
