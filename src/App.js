@@ -74,7 +74,7 @@ const App = () => {
               <About />
             </Route>
             <Route path="/profile">
-              <Signin />
+              <Redirect to="/login" />
             </Route>
             <Route path="/product/:id">
               <ProductProfile />

@@ -4,7 +4,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import { useContext } from "react";
 import { RoleContext } from "../../contexts/RoleContext";
-import "./Header.css";
 
 const useStyles = makeStyles((theme) => ({
   submit: {
@@ -58,26 +57,14 @@ const MainNavbar = () => {
           </div>
           {!role ? (
             <div className="logbuttons">
-              <Link to="/signup" className="ccwhiteee">
-                <Button
-                  type="submit"
-                  fullWidth
-                  variant="outlined"
-                  color="primary"
-                  className={classes.submit2}
-                >
+              <Link to="/signup">
+                <Button variant="outlined" className={classes.submit2}>
                   Sign Up
                 </Button>
               </Link>
               &nbsp;&nbsp;
-              <Link to="/login" className="ccblacc">
-                <Button
-                  type="submit"
-                  fullWidth
-                  variant="contained"
-                  color="primary"
-                  className={classes.submit}
-                >
+              <Link to="/login">
+                <Button variant="contained" className={classes.submit}>
                   Log In
                 </Button>
               </Link>
@@ -86,9 +73,7 @@ const MainNavbar = () => {
             <div>
               <Button
                 onClick={logout}
-                fullWidth
                 variant="outlined"
-                color="primary"
                 className={classes.submit2}
               >
                 Signout
@@ -98,19 +83,8 @@ const MainNavbar = () => {
         </Contact>
         <Nav>
           <div>
-            <img src="/logo.png" alt="logo" />
-          </div>
-          <div className="testnavlevels">
-            <Link to="/" style={{ color: "black" }}>
-              Home
-            </Link>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <Link to="/catalogue" style={{ color: "black" }}>
-              Tools
-            </Link>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <Link to="/about" style={{ color: "black" }}>
-              Contat-Us
+            <Link to="/catalogue">
+              <img src="/logo.png" alt="logo" />
             </Link>
           </div>
           {role && (
@@ -128,14 +102,14 @@ const MainNavbar = () => {
                   className="persoimgnav"
                   src={`${
                     JSON.parse(window.localStorage.getItem("connectedUser"))
-                      .avatar
+                      ?.avatar
                   }`}
                 />
                 <span style={{ color: "black", fontFamily: "Roboto" }}>
                   &nbsp;
                   {
                     JSON.parse(window.localStorage.getItem("connectedUser"))
-                      .username
+                      ?.username
                   }
                 </span>
               </StyledLink>
@@ -151,12 +125,10 @@ const MainNavbar = () => {
 const Contact = styled.div`
   display: flex;
   font-family: "Open Sans", sans-serif;
-  font-weight: initial;
   justify-content: space-between;
   background-color: #353535;
-  height: 2rem;
   div {
-    margin: 1rem;
+    margin: 0 1rem;
     margin-top: 5px;
     color: white;
     i {
@@ -196,4 +168,5 @@ const StyledLink = styled(Link)`
     border-radius: 50%;
   }
 `;
+
 export default MainNavbar;

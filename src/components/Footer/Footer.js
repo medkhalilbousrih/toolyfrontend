@@ -1,5 +1,5 @@
 import "./footer.css";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 const Footer = () => {
   const location = useLocation();
@@ -17,16 +17,40 @@ const Footer = () => {
               </p>
             </div>
             <div className=" cadre catt col-2">
-              <p className="size ppp">MAIN PAGES</p>
-              <p className="ss ppp">About</p>
-              <p className="ss ppp">Contact Us</p>
-              <p className="ss ppp">F.A.Q.?</p>
+              <p className="size ppp">Information</p>
+              <p>
+                <Link to="/about" className="ss ppp">
+                  About
+                </Link>
+              </p>
+              <p>
+                <Link to="/about" className="ss ppp">
+                  Contact Us
+                </Link>
+              </p>
+              <p>
+                <Link to="/about" className="ss ppp">
+                  F.A.Q?
+                </Link>
+              </p>
             </div>
             <div className=" cadre catt col-2">
-              <p className="size ppp">CATEGORIES</p>
-              <p className="ss ppp">Cat 1</p>
-              <p className="ss ppp">Cat 2</p>
-              <p className="ss ppp">Cat 3</p>
+              <p className="size ppp">MAIN PAGES</p>
+              <p>
+                <Link to="/catalogue" className="ss ppp">
+                  Tools
+                </Link>
+              </p>
+              <p>
+                <Link to="/profile" className="ss ppp">
+                  Profile
+                </Link>
+              </p>
+              <p>
+                <Link to="/Cart" className="ss ppp">
+                  Cart
+                </Link>
+              </p>
             </div>
             <div className=" cadre catt sub col-4 ">
               <p className="size ppp">SUBSCRIBE</p>
