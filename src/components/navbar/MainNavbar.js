@@ -89,14 +89,18 @@ const MainNavbar = () => {
           </div>
           {role && (
             <div>
-              <i className="fas fa-cart-arrow-down fa-2x"></i>
-              <Link
-                to="/catalogue"
-                style={{ color: "black", fontFamily: "Roboto" }}
-              >
-                &nbsp;Cart
-              </Link>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              {role === "client" && (
+                <>
+                  <i className="fas fa-cart-arrow-down fa-2x"></i>
+                  <Link
+                    to="/cart"
+                    style={{ color: "black", fontFamily: "Roboto" }}
+                  >
+                    &nbsp;Cart
+                  </Link>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </>
+              )}
               <StyledLink to="/profile">
                 <img
                   className="persoimgnav"

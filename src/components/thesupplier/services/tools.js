@@ -20,6 +20,11 @@ const create = async (tool) => {
   return newTool.data;
 };
 
-const toolService = { create };
+const getCategories = async () => {
+  const categories = await axios.get("/api/categories");
+  return categories.data;
+};
+
+const toolService = { create, getCategories };
 
 export default toolService;

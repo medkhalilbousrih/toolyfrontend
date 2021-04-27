@@ -14,20 +14,13 @@ import { useState, useEffect } from "react";
 import { RoleContext } from "./contexts/RoleContext";
 import Supplier from "./components/thesupplier/Supplier";
 import Client from "./components/theclient/client";
-import ProductCard from "./components/ProductPorfile/ProductCard";
 import ProductProfile from "./components/ProductPorfile/ProductProfile";
 import Cart from "./components/Cart/Cart";
 
 const App = () => {
-  const [role, setRole] = useState(null);
-
-  useEffect(() => {
-    const connectedUser = window.localStorage.getItem("connectedUser");
-    if (connectedUser) {
-      const user = JSON.parse(connectedUser);
-      setRole(user.role);
-    }
-  }, []);
+  const [role, setRole] = useState(
+    JSON.parse(window.localStorage.getItem("connectedUser"))?.role
+  );
 
   return (
     <RoleContext.Provider value={[role, setRole]}>
@@ -56,8 +49,8 @@ const App = () => {
             <Route path="/product/:id">
               <ProductProfile />
             </Route>
-            <Route path="/Cart">
-              <Cart />
+            <Route path="/cart">
+              {role === "supplier" ? <Catalogue /> : <Cart />}
             </Route>
           </Switch>
         ) : (
@@ -82,9 +75,6 @@ const App = () => {
             </Route>
             <Route path="/product/:id">
               <ProductProfile />
-            </Route>
-            <Route path="/Cart">
-              <Cart />
             </Route>
           </Switch>
         )}

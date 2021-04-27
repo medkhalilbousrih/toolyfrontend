@@ -1,5 +1,5 @@
 const Catalogue = () => {
-  return <div>aaaa</div>;
+  return <div></div>;
 };
 
 export default Catalogue;
