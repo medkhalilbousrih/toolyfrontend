@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import toolService from "./services/tools";
@@ -5,6 +6,16 @@ import styled from "styled-components";
 
 const AddTool = () => {
   const { register, handleSubmit } = useForm();
+  const [categories, setCategories] = useState([]);
+  useEffect(() => {
+    toolService
+      .getCategories()
+      .then((res) => {
+        setCategories(res);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   const onSubmit = async (data) => {
     try {
       const tool = new FormData();
@@ -58,14 +69,13 @@ const AddTool = () => {
               name="price"
             />
           </StyledGroup>
-          <StyledGroup>
-            <Form.Label>Category</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="hammer"
-              ref={register}
-              name="category"
-            />
+          <StyledGroup controlId="exampleForm.SelectCustom">
+            <Form.Label>Custom select</Form.Label>
+            <Form.Control as="select" custom ref={register} name="category">
+              {categories?.map((cat) => (
+                <option key={cat}>{cat}</option>
+              ))}
+            </Form.Control>
           </StyledGroup>
           <StyledGroup controlId="exampleForm.ControlTextarea1">
             <Form.Label>Description</Form.Label>
