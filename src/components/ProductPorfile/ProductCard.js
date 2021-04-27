@@ -12,6 +12,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import PriceCard from "./PriceCard";
 import SupplierCard from "./SupplierCard";
 import productService from "./services/product";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
@@ -56,129 +57,137 @@ const useStyles = makeStyles({
 });
 
 const ProductCard = () => {
+  const history = useHistory();
   const user = JSON.parse(window.localStorage.getItem("connectedUser"));
-  const [product, setProduct] = useState({});
+  const [product, setProduct] = useState(null);
   const { id } = useParams();
   const classes = useStyles();
   useEffect(() => {
-    productService.getInfo(id).then((res) => setProduct(res));
+    productService.getInfo(id).then((res) => {
+      setProduct(res);
+      console.log(res);
+    });
   }, []);
 
-  return (
-    <>
-      <Title>
-        <a>Tool Name & Model : Lorem ipsum dolor sit amet</a>
-      </Title>
-      <CC>
-        <Card className={classes.root} variant="outlined">
-          <CardActionArea>
-            <CardMedia
-              className={classes.toolimage}
-              component="img"
-              alt="Taswira"
-              height="300"
-              image="/Images/hammer.PNG"
-              title="Contemplative Reptile"
-            />
-          </CardActionArea>
-        </Card>
-        <Card className={classes.rootcard2} variant="outlined">
-          <CardContent>
-            <Typography variant="h6" component="h2">
-              Tool Name & Model
-            </Typography>
-            <Flex1>
-              <Typography
-                className={classes.title}
-                color="textSecondary"
-                gutterBottom
-              >
-                Lorem ipsulun
+  if (product) {
+    return (
+      <>
+        <Title>
+          <p>{product.name}</p>
+        </Title>
+        <CC>
+          <Card className={classes.root} variant="outlined">
+            <CardActionArea>
+              <CardMedia
+                className={classes.toolimage}
+                component="img"
+                alt="Taswira"
+                height="300"
+                image={product.imageUrls[0]}
+                title="Contemplative Reptile"
+              />
+            </CardActionArea>
+          </Card>
+          <Card className={classes.rootcard2} variant="outlined">
+            <CardContent>
+              <Typography variant="h6" component="h2">
+                {product.name}
               </Typography>
-              <Typography className={classes.titlebluefonce} gutterBottom>
-                XXXXXXXXXXX
+              <Flex1>
+                <Typography
+                  className={classes.title}
+                  color="textSecondary"
+                  gutterBottom
+                >
+                  Brand
+                </Typography>
+                <Typography className={classes.titlebluefonce} gutterBottom>
+                  {product.brand}
+                </Typography>
+              </Flex1>
+              <Flex1>
+                <Typography
+                  className={classes.title}
+                  color="textSecondary"
+                  gutterBottom
+                >
+                  Price
+                </Typography>
+                <Typography
+                  className={classes.titlebluefonce}
+                  color="textSecondary"
+                  gutterBottom
+                >
+                  {product.price}
+                </Typography>
+              </Flex1>
+              <br />
+              <Typography variant="body2" component="p">
+                Description : {product.description}
               </Typography>
-            </Flex1>
-            <Flex1>
-              <Typography
-                className={classes.title}
-                color="textSecondary"
-                gutterBottom
-              >
-                Lorem ipsulun
-              </Typography>
-              <Typography
-                className={classes.titlebluefonce}
-                color="textSecondary"
-                gutterBottom
-              >
-                YYYYYYYYYYY
-              </Typography>
-            </Flex1>
-            <br />
-            <Typography variant="body2" component="p">
-              Description: well meaning and kindly.
-            </Typography>
-            <br />
-            <Flex1>
-              <Typography
-                className={classes.titleblueclair}
-                color="textSecondary"
-                gutterBottom
-              >
-                Origin Localisation
-              </Typography>
-              <Typography
-                className={classes.titlebluefonce}
-                color="textSecondary"
-                gutterBottom
-              >
-                ZZZZZZZZZZZZZZZ
-              </Typography>
-            </Flex1>
+              <br />
+              <Flex1>
+                <Typography
+                  className={classes.titleblueclair}
+                  color="textSecondary"
+                  gutterBottom
+                >
+                  Origin Localisation
+                </Typography>
+                <Typography
+                  className={classes.titlebluefonce}
+                  color="textSecondary"
+                  gutterBottom
+                >
+                  ZZZZZZZZZZZZZZZ
+                </Typography>
+              </Flex1>
 
-            <Flex1>
-              <Typography
-                className={classes.titleblueclair}
-                color="textSecondary"
-                gutterBottom
-              >
-                Actual Localisation
-              </Typography>
-              <Typography
-                className={classes.titlebluefonce}
-                color="textSecondary"
-                gutterBottom
-              >
-                AAAAAAAAAAAA
-              </Typography>
-            </Flex1>
-            <br />
-            <Flex1>
-              <Typography
-                className={classes.title}
-                color="textSecondary"
-                gutterBottom
-              >
-                Aymen Khlil
-              </Typography>
-              <Typography className={classes.Numero} gutterBottom>
-                99 999 999
-              </Typography>
-            </Flex1>
-          </CardContent>
-          <CardActions>
-            <i class="fab fa-twitter-square"></i>
-            <i class="fab fa-facebook-square"></i>
-          </CardActions>
-        </Card>
-        {user?.role === "client" && <PriceCard />}
-        {user?.role === "supplier" && user.id == product.supplier && (
-          <SupplierCard />
-        )}
-      </CC>
-    </>
-  );
+              <Flex1>
+                <Typography
+                  className={classes.titleblueclair}
+                  color="textSecondary"
+                  gutterBottom
+                >
+                  Actual Localisation
+                </Typography>
+                <Typography
+                  className={classes.titlebluefonce}
+                  color="textSecondary"
+                  gutterBottom
+                >
+                  AAAAAAAAAAAA
+                </Typography>
+              </Flex1>
+              <br />
+              <Flex1>
+                <Typography
+                  className={classes.title}
+                  color="textSecondary"
+                  gutterBottom
+                >
+                  {product.supplier.username}
+                </Typography>
+                <Typography className={classes.Numero} gutterBottom>
+                  {product.supplier.phoneNumber}
+                </Typography>
+              </Flex1>
+            </CardContent>
+            <CardActions>
+              <i class="fab fa-twitter-square"></i>
+              <i class="fab fa-facebook-square"></i>
+            </CardActions>
+          </Card>
+          {user?.role === "client" && <PriceCard price={product.price} />}
+          {user?.role === "supplier" && user.id == product.supplier.id && (
+            <SupplierCard />
+          )}
+        </CC>
+      </>
+    );
+  } else {
+    return <div>NEIN</div>;
+  }
 };
 
 const Title = styled.div`

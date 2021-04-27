@@ -32,10 +32,10 @@ const useStyles = makeStyles({
   },
 });
 
-const PricedCard = () => {
+const PricedCard = ({ price }) => {
   const classes = useStyles();
 
-  const [num, setNum] = useState(0);
+  const [num, setNum] = useState(1);
 
   const incNum = () => {
     setNum(num + 1);
@@ -118,7 +118,7 @@ const PricedCard = () => {
               Total Price
             </Typography>
             <Typography className={classes.Pricegras} gutterBottom>
-              30 Dinars
+              {price * num}
             </Typography>
           </Flex1>
 
