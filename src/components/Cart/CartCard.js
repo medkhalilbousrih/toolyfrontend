@@ -88,7 +88,7 @@ const CartCard = ({ item }) => {
             </Button>
           </ToolName>
           <ToolName>
-            <i class="fas fa-times"></i>
+            <i className="fas fa-times"></i>
           </ToolName>
         </CCard>
       </>

@@ -143,13 +143,13 @@ const BasicInfos = () => {
         </LeftContainer>
         <RightContainer>
           <GrayBox>
-            <i class="fas fa-mobile-alt"></i>
+            <i className="fas fa-mobile-alt"></i>
           </GrayBox>
           <GrayBox>
-            <i class="fas fa-truck-pickup"></i>
+            <i className="fas fa-truck-pickup"></i>
           </GrayBox>
           <GrayBox>
-            <i class="fas fa-coins"></i>
+            <i className="fas fa-coins"></i>
           </GrayBox>
         </RightContainer>
       </AllContainer>

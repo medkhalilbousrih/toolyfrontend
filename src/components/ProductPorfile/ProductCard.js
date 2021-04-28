@@ -171,8 +171,8 @@ const ProductCard = () => {
               </Flex1>
             </CardContent>
             <CardActions>
-              <i class="fab fa-twitter-square"></i>
-              <i class="fab fa-facebook-square"></i>
+              <i className="fab fa-twitter-square"></i>
+              <i className="fab fa-facebook-square"></i>
             </CardActions>
           </Card>
           {user?.role === "client" && (

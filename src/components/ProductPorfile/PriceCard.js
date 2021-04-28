@@ -42,7 +42,6 @@ const PricedCard = ({ price, id }) => {
       .includes(id)
   );
 
-  console.log(btnDisabled);
   const incNum = () => {
     setNum(num + 1);
   };
@@ -94,7 +93,7 @@ const PricedCard = ({ price, id }) => {
             </Typography>
             <IncDec>
               <div>
-                <i onClick={incNum} class="fas fa-plus"></i>
+                <i onClick={incNum} className="fas fa-plus"></i>
               </div>
               &nbsp;&nbsp;
               <div>
@@ -108,7 +107,7 @@ const PricedCard = ({ price, id }) => {
               </div>
               &nbsp;&nbsp;
               <div>
-                <i onClick={minNum} class="fas fa-minus"></i>
+                <i onClick={minNum} className="fas fa-minus"></i>
               </div>
             </IncDec>
           </Flex1>

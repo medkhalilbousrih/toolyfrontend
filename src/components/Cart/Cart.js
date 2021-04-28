@@ -31,7 +31,7 @@ const Cart = () => {
           </TitleDefines>
           <CardContainer>
             {cart?.map((item) => (
-              <CartCard item={item} />
+              <CartCard key={item.id} item={item} />
             ))}
           </CardContainer>
         </View>
