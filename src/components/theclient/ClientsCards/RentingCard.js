@@ -9,8 +9,9 @@ const useStyles = makeStyles((theme) => ({
     height: theme.spacing(3),
   },
 }));
-const RentingCard = () => {
+const RentingCard = ({ data }) => {
   const classes = useStyles();
+
   return (
     <>
       <RentalCard>
@@ -20,7 +21,7 @@ const RentingCard = () => {
               width={60}
               height={60}
               alt="Tool img"
-              src="/Images/hammer.PNG"
+              src={`${data.imageUrls[0]}`}
             />
           </Figure>
         </Bloc1>
@@ -35,7 +36,7 @@ const RentingCard = () => {
           >
             Tool
           </p>
-          <p>Tool Name</p>
+          <p>{data.name}</p>
         </Bloc2>
         <Bloc2>
           <p
@@ -84,7 +85,7 @@ const RentingCard = () => {
               className={classes.small}
             />
             <div style={{ paddingLeft: "0.3rem" }}>
-              <p>Owner Name</p>
+              <p>supplier name</p>
               <p
                 style={{
                   marginTop: "-1.4rem",
@@ -108,7 +109,7 @@ const RentingCard = () => {
           >
             Total Price
           </p>
-          <p>70 Dinars</p>
+          <p>{data.price}</p>
         </Bloc2>
       </RentalCard>
     </>

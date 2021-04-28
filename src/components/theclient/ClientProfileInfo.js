@@ -1,15 +1,15 @@
 import styled from "styled-components";
 
-const ClientProfileInfo = () => {
+const ClientProfileInfo = ({ data }) => {
   return (
     <>
       <Profile>
         <Data>
-          <h2>Mohamed Aymen Khlil</h2>
+          <h2>{data.username}</h2>
           <Infocont>
             <YellowLittleInfo>
-              <div>Gender</div>
-              <div>Male</div>
+              <div>Email</div>
+              <div>{data.email}</div>
             </YellowLittleInfo>
             <YellowLittleInfo>
               <div>Birthday</div>
@@ -17,7 +17,7 @@ const ClientProfileInfo = () => {
             </YellowLittleInfo>
             <YellowLittleInfo>
               <div>Phone Number</div>
-              <div>+216 22732763</div>
+              <div>{data.phoneNumber}</div>
             </YellowLittleInfo>
           </Infocont>
           <Infocont>
@@ -30,13 +30,13 @@ const ClientProfileInfo = () => {
               <div>July,03 1996</div>
             </YellowLittleInfo>
             <YellowLittleInfo>
-              <div>Registred Date</div>
-              <div>+216 22732763</div>
+              <div>Role</div>
+              <div>{data.role}</div>
             </YellowLittleInfo>
           </Infocont>
         </Data>
         <Photozone>
-          <Imgg></Imgg>
+          <Img src={`${data.imageUrl}`}></Img>
           <div>Renting Now: 0</div>
           <div>Rented OverAll: 0</div>
         </Photozone>
@@ -98,12 +98,12 @@ const Photozone = styled.div`
     padding-top: 0.2rem;
   }
 `;
-const Imgg = styled.div`
+const Img = styled.img`
   width: 100%;
   height: 100%;
   border-radius: 50%;
   border: 5px solid #353535;
-  background-image: url("/Images/aymen.jpg");
+
   background-position: center;
   background-size: cover;
   margin-top: -3rem;
