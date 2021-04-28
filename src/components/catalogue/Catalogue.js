@@ -4,6 +4,9 @@ const Catalogue = () => {
   return (
     <>
       <CatalogueCards />
+      <CatalogueCards />
+      <CatalogueCards />
+      <CatalogueCards />
     </>
   );
 };
