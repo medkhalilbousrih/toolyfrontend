@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "https://tranquil-journey-35786.herokuapp.com/api/tools";
+const baseUrl = "/api/tools";
 
 const getAll = async () => {
   const products = await axios.get(baseUrl);

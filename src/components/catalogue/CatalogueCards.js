@@ -4,6 +4,7 @@ import Paper from "@material-ui/core/Paper";
 import Container from "@material-ui/core/Container";
 import Figure from "react-bootstrap/Figure";
 import Avatar from "@material-ui/core/Avatar";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,11 +24,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CatalogueCards = () => {
+const CatalogueCards = ({ tool }) => {
   const classes = useStyles();
+  const history = useHistory();
   return (
     <>
-      <Container maxWidth="lg" className={classes.Container}>
+      <Container
+        maxWidth="lg"
+        className={classes.Container}
+        onClick={() => {
+          history.push(`/product/${tool.id}`);
+        }}
+      >
         <CardContainer onClick={() => {}}>
           <div className={classes.root}>
             <Paper elevation={1} className={classes.card}>
@@ -38,30 +46,25 @@ const CatalogueCards = () => {
                       width={172.5}
                       height={10}
                       alt="Tool img"
-                      src="/Images/hammer.PNG"
+                      src={`${tool.imageUrls[0]}`}
                       style={{ borderRadius: "5px 0px 0px 5px" }}
                     />
                   </Figure>
                 </Img>
                 <Data>
-                  <DD>Tool Name</DD>
-                  <DD>
-                    Desciption: Desqsd qsdq fih u zgzph ôizheg iozh ugzhg hzêigh
-                    ^zigh qsdq
-                  </DD>
-                  <DD style={{ color: " #116de5" }}>
-                    <i class="fas fa-map-marker-alt"></i>
-                    &nbsp; Origin Location: aze aze azeaz 64
-                  </DD>
+                  <DD>{tool.name}</DD>
+                  <DD>State: {tool.state}</DD>
                   <DD>
                     <Av>
                       <Avatar
                         alt="Remy Sharp"
-                        src="/Images/aymen.jpg"
+                        src={tool.supplier.imageUrl}
                         className={classes.small}
                       />
                       &nbsp;&nbsp;
-                      <p style={{ marginTop: "0.2rem" }}> Owner Name</p>
+                      <p style={{ marginTop: "0.2rem" }}>
+                        {tool.supplier.username}
+                      </p>
                     </Av>
                   </DD>
                   <DD>

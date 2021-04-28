@@ -33,7 +33,6 @@ const CartCard = ({ item }) => {
   useEffect(() => {
     productService.getInfo(item.id).then((res) => {
       setTool(res);
-      console.log(res);
     });
   }, []);
 
@@ -41,53 +40,60 @@ const CartCard = ({ item }) => {
     productService
       .rentTool({ id: item.id, to: item.to })
       .then((res) => {
-        console.log(res);
+        setTool(null);
+        const user = JSON.parse(window.localStorage.getItem("connectedUser"));
+        user.cart = user.cart.filter((i) => i.id !== item.id);
+        window.localStorage.setItem("connectedUser", JSON.stringify(user));
       })
       .catch((err) => console.log(err.response));
   };
+  if (!tool) {
+    return null;
+  } else {
+    return (
+      <>
+        <CCard>
+          <ToolName>
+            <p>{tool?.name}</p>
+          </ToolName>
+          <ToolName>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "baseline",
+              }}
+            >
+              <Avatar
+                alt="Remy Sharp"
+                src={tool?.supplier.imageUrl}
+                className={classes.small}
+              />
 
-  return (
-    <>
-      <CCard>
-        <ToolName>
-          <p>{tool?.name}</p>
-        </ToolName>
-        <ToolName>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "baseline",
-            }}
-          >
-            <Avatar
-              alt="Remy Sharp"
-              src={tool?.supplier.imageUrl}
-              className={classes.small}
-            />
-
-            <p style={{ paddingLeft: "0.3rem" }}>{tool?.supplier.username}</p>
-          </div>
-        </ToolName>
-        <ToolName>
-          <p>{tool?.state}</p>
-        </ToolName>
-        <ToolName>
-          <Button
-            variant="contained"
-            color="secondary"
-            className={classes.Button}
-            onClick={handleClick}
-          >
-            PROCEED $
-          </Button>
-        </ToolName>
-        <ToolName>
-          <i class="fas fa-times"></i>
-        </ToolName>
-      </CCard>
-    </>
-  );
+              <p style={{ paddingLeft: "0.3rem" }}>{tool?.supplier.username}</p>
+            </div>
+          </ToolName>
+          <ToolName>
+            <p>{tool?.state}</p>
+          </ToolName>
+          <ToolName>
+            <Button
+              variant="contained"
+              color="secondary"
+              className={classes.Button}
+              onClick={handleClick}
+              disabled={tool.state === "rented"}
+            >
+              PROCEED $
+            </Button>
+          </ToolName>
+          <ToolName>
+            <i class="fas fa-times"></i>
+          </ToolName>
+        </CCard>
+      </>
+    );
+  }
 };
 const CCard = styled.div`
   display: flex;
