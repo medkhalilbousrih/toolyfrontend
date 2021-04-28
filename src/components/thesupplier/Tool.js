@@ -52,10 +52,15 @@ const Tool = ({ data }) => {
             {data.name}
           </Typography>
           <Typography variant="body2" color="textPrimary" component="p">
+            <b>Category: </b>
             {data.category}
           </Typography>
           <Typography variant="body2" color="textPrimary" component="p">
-            {data.price} Dinars
+            <b>Price: </b> {data.price} Dinars
+          </Typography>
+          <Typography variant="body2" color="textPrimary" component="p">
+            <b>State: </b>
+            {data.state}
           </Typography>
         </CardContent>
       </CardActionArea>

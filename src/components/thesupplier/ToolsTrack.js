@@ -1,7 +1,18 @@
+import { useEffect, useState } from "react";
 import "./ToolsTrack.css";
 import Cardrentals from "./Cardsrentals";
+import supplierService from "./services/supplier";
 
 const ToolsTrack = () => {
+  const [rented, setRented] = useState([]);
+  useEffect(() => {
+    supplierService
+      .getAll()
+      .then((res) => {
+        setRented(res);
+      })
+      .catch((err) => console.log(err));
+  }, []);
   return (
     <>
       <div className="col">

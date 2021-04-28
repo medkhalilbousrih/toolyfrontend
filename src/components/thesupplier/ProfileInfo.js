@@ -7,7 +7,7 @@ const ProfileInfo = ({ data }) => {
         <Title>
           <h2>{data.username}</h2>
         </Title>
-        <Data>
+        <div>
           <Infocont>
             <YellowLittleInfo>
               <div style={{ fontWeight: "bold" }}>E-mail</div>
@@ -15,7 +15,7 @@ const ProfileInfo = ({ data }) => {
             </YellowLittleInfo>
             <YellowLittleInfo>
               <div style={{ fontWeight: "bold" }}>City</div>
-              <div>July,03 1996</div>
+              <div>Tunis</div>
             </YellowLittleInfo>
             <YellowLittleInfo>
               <div style={{ fontWeight: "bold" }}>Phone Number</div>
@@ -28,7 +28,7 @@ const ProfileInfo = ({ data }) => {
               <div>{data.role}</div>
             </YellowLittleInfo>
           </Infocont>
-        </Data>
+        </div>
         <Img src={`${data.imageUrl}`}></Img>
         <Info>
           <div className="">Total Owned Tools: {data.tools.length}</div>
@@ -74,17 +74,14 @@ const Info = styled.div`
   font-family: "Open Sans";
 `;
 
-const Data = styled.div``;
-
 const YellowLittleInfo = styled.div`
-  width: 200px;
-
-  margin-right: 4rem;
+  margin: 0 3rem;
+  width: 10rem;
 `;
 
 const Title = styled.div`
   padding-top: 1rem;
-  margin-left: 7rem;
+  margin-left: 4rem;
   h2 {
     font-family: "Open Sans";
     font-weight: bold;
