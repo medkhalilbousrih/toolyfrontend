@@ -1,8 +1,9 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Button from "@material-ui/core/Button";
 import Avatar from "@material-ui/core/Avatar";
-
 import { makeStyles } from "@material-ui/core/styles";
+import productService from "../ProductPorfile/services/product";
 
 const useStyles = makeStyles((theme) => ({
   small: {
@@ -26,13 +27,30 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CartCard = () => {
+const CartCard = ({ item }) => {
   const classes = useStyles();
+  const [tool, setTool] = useState();
+  useEffect(() => {
+    productService.getInfo(item.id).then((res) => {
+      setTool(res);
+      console.log(res);
+    });
+  }, []);
+
+  const handleClick = () => {
+    productService
+      .rentTool({ id: item.id, to: item.to })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => console.log(err.response));
+  };
+
   return (
     <>
       <CCard>
         <ToolName>
-          <p>Hammer</p>
+          <p>{tool?.name}</p>
         </ToolName>
         <ToolName>
           <div
@@ -44,21 +62,22 @@ const CartCard = () => {
           >
             <Avatar
               alt="Remy Sharp"
-              src="/Images/aymen.jpg"
+              src={tool?.supplier.imageUrl}
               className={classes.small}
             />
 
-            <p style={{ paddingLeft: "0.3rem" }}>Mohamed Aymen Khlil</p>
+            <p style={{ paddingLeft: "0.3rem" }}>{tool?.supplier.username}</p>
           </div>
         </ToolName>
         <ToolName>
-          <p>Available</p>
+          <p>{tool?.state}</p>
         </ToolName>
         <ToolName>
           <Button
             variant="contained"
             color="secondary"
             className={classes.Button}
+            onClick={handleClick}
           >
             PROCEED $
           </Button>

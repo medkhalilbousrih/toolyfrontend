@@ -6,13 +6,11 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import PriceCard from "./PriceCard";
 import SupplierCard from "./SupplierCard";
 import productService from "./services/product";
-import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
@@ -57,7 +55,6 @@ const useStyles = makeStyles({
 });
 
 const ProductCard = () => {
-  const history = useHistory();
   const user = JSON.parse(window.localStorage.getItem("connectedUser"));
   const [product, setProduct] = useState(null);
   const { id } = useParams();
@@ -65,7 +62,6 @@ const ProductCard = () => {
   useEffect(() => {
     productService.getInfo(id).then((res) => {
       setProduct(res);
-      console.log(res);
     });
   }, []);
 
@@ -178,7 +174,9 @@ const ProductCard = () => {
               <i class="fab fa-facebook-square"></i>
             </CardActions>
           </Card>
-          {user?.role === "client" && <PriceCard price={product.price} />}
+          {user?.role === "client" && (
+            <PriceCard price={product.price} id={product.id} />
+          )}
           {user?.role === "supplier" && user.id == product.supplier.id && (
             <SupplierCard />
           )}

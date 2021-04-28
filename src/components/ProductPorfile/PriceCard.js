@@ -32,7 +32,7 @@ const useStyles = makeStyles({
   },
 });
 
-const PricedCard = ({ price }) => {
+const PricedCard = ({ price, id }) => {
   const classes = useStyles();
 
   const [num, setNum] = useState(1);
@@ -43,6 +43,22 @@ const PricedCard = ({ price }) => {
   const minNum = () => {
     if (num > 0) {
       setNum(num - 1);
+    }
+  };
+  const handleClick = () => {
+    let user = JSON.parse(window.localStorage.getItem("connectedUser"));
+    const to = new Date();
+    to.setDate(to.getDate() + num);
+    if (user) {
+      user.cart = user.cart.concat({
+        id,
+        total: price * num,
+        to: to.toUTCString(),
+      });
+      window.localStorage.setItem("connectedUser", JSON.stringify(user));
+    } else {
+      user.cart = [{ id, total: price * num, to: to.toUTCString() }];
+      window.localStorage.setItem("connectedUser", JSON.stringify(user));
     }
   };
   return (
@@ -122,7 +138,7 @@ const PricedCard = ({ price }) => {
             </Typography>
           </Flex1>
 
-          <Button block variant="warning">
+          <Button block variant="warning" onClick={handleClick}>
             ADD TO CART
           </Button>
         </CardContent>
