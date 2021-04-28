@@ -11,13 +11,11 @@ import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 275,
+    maxWidth: 220,
+    width: "100%",
     margin: 10,
   },
-  cover: {
-    width: 220,
-    height: 220,
-  },
+  cover: {},
   content: {
     backgroundColor: "#ffc850",
   },
@@ -34,14 +32,21 @@ const Tool = ({ data }) => {
       }}
     >
       <CardActionArea>
-        <CardMedia
-          className={classes.cover}
-          component="img"
-          alt={data.name}
-          height="220"
-          width="220"
-          image={`${data.imageUrls[0]}`}
-        />
+        <div
+          style={{
+            display: "flex",
+            alignItem: "center",
+            justifyContent: "center",
+          }}
+        >
+          <CardMedia
+            style={{ width: "auto", maxHeight: "200px" }}
+            className={classes.cover}
+            component="img"
+            alt={data.name}
+            image={`${data.imageUrls[0]}`}
+          />
+        </div>
         <CardContent className={classes.content}>
           <Typography gutterBottom variant="h5" component="h2">
             {data.name}

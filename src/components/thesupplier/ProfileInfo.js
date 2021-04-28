@@ -2,44 +2,67 @@ import styled from "styled-components";
 
 const ProfileInfo = ({ data }) => {
   return (
-    <Profile>
-      <p>{data.username}</p>
+    <>
+      <Profile>
+        <Title>
+          <h2>{data.username}</h2>
+        </Title>
+        <Data>
+          <Infocont>
+            <YellowLittleInfo>
+              <div style={{ fontWeight: "bold" }}>E-mail</div>
+              <div>{data.email}</div>
+            </YellowLittleInfo>
+            <YellowLittleInfo>
+              <div style={{ fontWeight: "bold" }}>City</div>
+              <div>July,03 1996</div>
+            </YellowLittleInfo>
+            <YellowLittleInfo>
+              <div style={{ fontWeight: "bold" }}>Phone Number</div>
+              <div>{data.phoneNumber}</div>
+            </YellowLittleInfo>
+          </Infocont>
+          <Infocont>
+            <YellowLittleInfo>
+              <div style={{ fontWeight: "bold" }}>Role</div>
+              <div>{data.role}</div>
+            </YellowLittleInfo>
+          </Infocont>
+        </Data>
+        <Img src={`${data.imageUrl}`}></Img>
+        <Info>
+          <div className="">Total Owned Tools: {data.tools.length}</div>
 
-      <Img src={`${data.imageUrl}`} />
-      <Info>
-        <div className="">Total Owned Tools: {data.tools.length}</div>
+          <div className="">Tools being rented right now: 0</div>
 
-        <div className="">Tools being rented right now: 0</div>
-
-        <div className="">Total sold Tools: 0</div>
-      </Info>
-    </Profile>
+          <div className="">Total sold Tools: 0</div>
+        </Info>
+      </Profile>
+    </>
   );
 };
 
 const Img = styled.img`
-  width: 12rem;
-  height: 12rem;
-  margin-left: -5rem;
+  width: 8rem;
+  height: 8rem;
+  margin-top: -3.2rem;
+  margin-left: -2.8rem;
   border-radius: 50%;
   border: 5px solid #353535;
-  margin-bottom: -3.5rem;
   z-index: 1;
 `;
 const Profile = styled.div`
-  display: flex;
-  flex-flow: column;
-  justify-content: flex-end;
   background-color: #ffc800;
   width: 80%;
   margin: 2rem auto;
   margin-bottom: 5rem;
-  height: 18rem;
+  height: 15rem;
   border-radius: 20px;
 `;
 const Info = styled.div`
   background-color: #353535;
-  height: 3.5rem;
+  margin-top: -2.5rem;
+  height: 2.5rem;
   border-radius: 15px;
   display: flex;
   flex-direction: row;
@@ -51,4 +74,29 @@ const Info = styled.div`
   font-family: "Open Sans";
 `;
 
+const Data = styled.div``;
+
+const YellowLittleInfo = styled.div`
+  width: 200px;
+
+  margin-right: 4rem;
+`;
+
+const Title = styled.div`
+  padding-top: 1rem;
+  margin-left: 7rem;
+  h2 {
+    font-family: "Open Sans";
+    font-weight: bold;
+    font-size: 30px;
+  }
+`;
+
+const Infocont = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-left: 12rem;
+  margin-top: 1rem;
+`;
 export default ProfileInfo;
