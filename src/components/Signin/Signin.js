@@ -71,7 +71,6 @@ export default function SignIn() {
       setRole(connectedUser.data.role);
       history.push("/catalogue");
     } catch (exception) {
-      console.log(exception.response);
       setMsg(exception.response.data);
     }
   };

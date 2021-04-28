@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import { useContext } from "react";
 import { RoleContext } from "../../contexts/RoleContext";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   submit: {
@@ -40,7 +41,18 @@ const MainNavbar = () => {
 
   const logout = () => {
     setRole(null);
-    window.localStorage.clear();
+    const user = JSON.parse(window.localStorage.getItem("connectedUser"));
+    axios
+      .put("/api/users/cart", user.cart, {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      })
+      .then((res) => {
+        window.localStorage.clear();
+        console.log(res);
+      })
+      .catch((err) => console.log(err.response));
     history.push("/catalogue");
   };
 

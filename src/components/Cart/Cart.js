@@ -1,8 +1,16 @@
+import { useEffect, useState } from "react";
 import Container from "@material-ui/core/Container";
 import styled from "styled-components";
 import CartCard from "./CartCard";
 
 const Cart = () => {
+  const [cart, setCart] = useState(null);
+  useEffect(() => {
+    const locCart = JSON.parse(window.localStorage.getItem("connectedUser"));
+    if (locCart) {
+      setCart(locCart.cart);
+    }
+  }, []);
   return (
     <>
       <Container maxWidth="lg">
@@ -22,18 +30,9 @@ const Cart = () => {
             <p style={{}}></p>
           </TitleDefines>
           <CardContainer>
-            <CartCard />
-            <CartCard />
-            <CartCard />
-            <CartCard />
-            <CartCard />
-            <CartCard />
-            <CartCard />
-            <CartCard />
-            <CartCard />
-            <CartCard />
-            <CartCard />
-            <CartCard />
+            {cart?.map((item) => (
+              <CartCard item={item} />
+            ))}
           </CardContainer>
         </View>
       </Container>
