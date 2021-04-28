@@ -18,7 +18,7 @@ const ToolsTrack = () => {
       <div className="col">
         <div className="contenairekbirrrrr ">
           <div className="GrandTitre">
-            <i class="fas fa-box">&nbsp;&nbsp;</i>
+            <i className="fas fa-box">&nbsp;&nbsp;</i>
             <h2 className="ToolsTrack">Tools Track</h2>
           </div>
           <div
@@ -47,13 +47,13 @@ const ToolsTrack = () => {
             <div className="Ligne2track-part2">
               <div className="boxfiltragetracktools">
                 <div>Filter</div>
-                <i class="fas fa-filter"></i>
+                <i className="fas fa-filter"></i>
               </div>
               &nbsp;&nbsp;
               <div className="boxfiltragetracktools">
                 <div>Sort By:</div>
                 <select
-                  class="form-select form-select-sm"
+                  className="form-select form-select-sm"
                   aria-label=".form-select-sm example"
                 >
                   <option value="1">ALL</option>
