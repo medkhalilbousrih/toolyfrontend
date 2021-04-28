@@ -14,6 +14,8 @@ import SupplierCard from "./SupplierCard";
 import productService from "./services/product";
 import { useHistory } from "react-router-dom";
 
+import Spinner from "./Spinner";
+
 const useStyles = makeStyles({
   root: {
     maxWidth: 300,
@@ -82,7 +84,6 @@ const ProductCard = () => {
                 className={classes.toolimage}
                 component="img"
                 alt="Taswira"
-                height="300"
                 image={product.imageUrls[0]}
                 title="Contemplative Reptile"
               />
@@ -186,7 +187,7 @@ const ProductCard = () => {
       </>
     );
   } else {
-    return <div>NEIN</div>;
+    return <Spinner />;
   }
 };
 

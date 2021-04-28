@@ -1,5 +1,11 @@
+import CatalogueCards from "./CatalogueCards";
+
 const Catalogue = () => {
-  return <div></div>;
+  return (
+    <>
+      <CatalogueCards />
+    </>
+  );
 };
 
 export default Catalogue;
