@@ -36,7 +36,13 @@ const PricedCard = ({ price, id }) => {
   const classes = useStyles();
 
   const [num, setNum] = useState(1);
+  const [btnDisabled, setBtnDisabled] = useState(
+    JSON.parse(window.localStorage.getItem("connectedUser"))
+      .cart.map((item) => item.id)
+      .includes(id)
+  );
 
+  console.log(btnDisabled);
   const incNum = () => {
     setNum(num + 1);
   };
@@ -60,6 +66,7 @@ const PricedCard = ({ price, id }) => {
       user.cart = [{ id, total: price * num, to: to.toUTCString() }];
       window.localStorage.setItem("connectedUser", JSON.stringify(user));
     }
+    setBtnDisabled(true);
   };
   return (
     <>
@@ -137,9 +144,13 @@ const PricedCard = ({ price, id }) => {
               {price * num}
             </Typography>
           </Flex1>
-
-          <Button block variant="warning" onClick={handleClick}>
-            ADD TO CART
+          <Button
+            block
+            variant="warning"
+            disabled={btnDisabled}
+            onClick={handleClick}
+          >
+            {btnDisabled ? <>ITEM IN CART</> : <>ADD TO CART</>}
           </Button>
         </CardContent>
       </Card>
