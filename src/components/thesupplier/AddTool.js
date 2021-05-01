@@ -3,6 +3,7 @@ import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import toolService from "./services/tools";
 import styled from "styled-components";
+import Col from "react-bootstrap/Col";
 
 const AddTool = () => {
   const { register, handleSubmit } = useForm();
@@ -76,6 +77,45 @@ const AddTool = () => {
                 <option key={cat}>{cat}</option>
               ))}
             </Form.Control>
+          </StyledGroup>
+          <StyledGroup>
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGridState">
+                <Form.Label>State</Form.Label>
+                <Form.Control as="select" defaultValue="Choose...">
+                  <option>Choose...</option>
+                  <option>Tunis</option>
+                  <option>Ariana</option>
+                  <option>Ben Arous</option>
+                  <option>Mannouba</option>
+                  <option>Bizerte</option>
+                  <option>Nabeul</option>
+                  <option>Beja</option>
+                  <option>Jendouba</option>
+                  <option>Zaghouan</option>
+                  <option>Siliana</option>
+                  <option>Kef</option>
+                  <option>Sousse</option>
+                  <option>Monastir</option>
+                  <option>Mahdia</option>
+                  <option>Kasserine</option>
+                  <option>Sidi Bouzid</option>
+                  <option>Kairouan</option>
+                  <option>Gafsa</option>
+                  <option>Sfax</option>
+                  <option>Gabes</option>
+                  <option>Medenine</option>
+                  <option>Tozeur</option>
+                  <option>Kebili</option>
+                  <option>Ttataouine</option>
+                </Form.Control>
+              </Form.Group>
+
+              <Form.Group as={Col} controlId="formGridCity">
+                <Form.Label>City</Form.Label>
+                <Form.Control />
+              </Form.Group>
+            </Form.Row>
           </StyledGroup>
           <StyledGroup controlId="exampleForm.ControlTextarea1">
             <Form.Label>Description</Form.Label>
