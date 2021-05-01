@@ -49,7 +49,7 @@ const RentingCard = ({ data }) => {
           >
             Rental Date
           </p>
-          <p>{data.rentDetails.from}</p>
+          <p>{data.rentDetails?.from}</p>
         </Bloc2>
         <Bloc2>
           <p
@@ -62,7 +62,7 @@ const RentingCard = ({ data }) => {
           >
             Date of Return
           </p>
-          <p>{data.rentDetails.to}</p>
+          <p>{data.rentDetails?.to}</p>
         </Bloc2>
         <Bloc2>
           <div>

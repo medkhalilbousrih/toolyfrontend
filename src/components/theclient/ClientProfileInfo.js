@@ -1,6 +1,15 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+import ProfileModify from "./ProfileModify/PorfileModify";
+import {
+  Route,
+  Switch,
+  useRouteMatch,
+  BrowserRouter as Router,
+} from "react-router-dom";
 
 const ClientProfileInfo = ({ data }) => {
+  let { path, url } = useRouteMatch();
   return (
     <>
       <Profile>
@@ -109,4 +118,5 @@ const Img = styled.img`
   margin-top: -3rem;
   z-index: 1;
 `;
+
 export default ClientProfileInfo;

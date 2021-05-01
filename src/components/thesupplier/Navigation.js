@@ -4,6 +4,7 @@ import SupplierContainer from "./SupplierContainer";
 import AddTool from "./AddTool";
 import { NavLink } from "react-router-dom";
 import ToolsTrack from "./ToolsTrack";
+import SupplierModify from "./SupplierModify/SupplierModify";
 
 const Navigation = () => {
   let { path, url } = useRouteMatch();
@@ -50,6 +51,19 @@ const Navigation = () => {
             <i className="fas fa-plus-square"> </i> Add Tool
           </LinkStyle>
         </p>
+        <p>
+          <LinkStyle
+            exact
+            to={`${url}/Modify`}
+            activeStyle={{
+              backgroundColor: "#ffc800",
+              width: "100%",
+            }}
+          >
+            {" "}
+            <i class="fas fa-user-edit"></i> Edit Profile
+          </LinkStyle>
+        </p>
       </SupNav>
       <Separator></Separator>
       <Switch>
@@ -61,6 +75,9 @@ const Navigation = () => {
         </Route>
         <Route path={`${path}/ToolsTrack`}>
           <ToolsTrack />
+        </Route>
+        <Route path={`${path}/Modify`}>
+          <SupplierModify />
         </Route>
       </Switch>
     </>

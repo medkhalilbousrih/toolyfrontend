@@ -2,6 +2,7 @@ import { Route, Switch, useRouteMatch } from "react-router-dom";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import ClientContainer from "./ClientContainer";
+import ProfileModify from "./ProfileModify/PorfileModify";
 
 const Sidenavclient = () => {
   let { path, url } = useRouteMatch();
@@ -27,11 +28,27 @@ const Sidenavclient = () => {
             <i className="fas fa-comments"> </i> Messages
           </LinkStyle>
         </p>
+        <p>
+          <LinkStyle
+            exact
+            to={`${url}/Modify`}
+            activeStyle={{
+              backgroundColor: "#ffc800",
+              width: "100%",
+            }}
+          >
+            {" "}
+            <i class="fas fa-user-edit"></i> Edit Profile
+          </LinkStyle>
+        </p>
       </SupNav>
       <Separator></Separator>
       <Switch>
         <Route exact path={path}>
           <ClientContainer />
+        </Route>
+        <Route path={`${path}/Modify`}>
+          <ProfileModify />
         </Route>
       </Switch>
     </>
