@@ -15,7 +15,9 @@ const ProfileInfo = ({ data }) => {
             </YellowLittleInfo>
             <YellowLittleInfo>
               <div style={{ fontWeight: "bold" }}>City</div>
-              <div>Tunis</div>
+              <div>
+                {data.address.state},{data.address.city}
+              </div>
             </YellowLittleInfo>
             <YellowLittleInfo>
               <div style={{ fontWeight: "bold" }}>Phone Number</div>

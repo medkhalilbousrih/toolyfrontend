@@ -4,7 +4,7 @@ import SupplierContainer from "./SupplierContainer";
 import AddTool from "./AddTool";
 import { NavLink } from "react-router-dom";
 import ToolsTrack from "./ToolsTrack";
-import SupplierModify from "./SupplierModify/SupplierModify";
+import SupplierModify from "./SupplierModify";
 
 const Navigation = () => {
   let { path, url } = useRouteMatch();
@@ -31,7 +31,7 @@ const Navigation = () => {
         </p>
         <p>
           <LinkStyle
-            to={`${url}/ToolsTrack`}
+            to={`${url}/toolstrack`}
             activeStyle={{
               backgroundColor: "#ffc800",
             }}
@@ -54,10 +54,9 @@ const Navigation = () => {
         <p>
           <LinkStyle
             exact
-            to={`${url}/Modify`}
+            to={`${url}/modify`}
             activeStyle={{
               backgroundColor: "#ffc800",
-              width: "100%",
             }}
           >
             {" "}
@@ -73,10 +72,10 @@ const Navigation = () => {
         <Route path={`${path}/addtool`}>
           <AddTool />
         </Route>
-        <Route path={`${path}/ToolsTrack`}>
+        <Route path={`${path}/toolstrack`}>
           <ToolsTrack />
         </Route>
-        <Route path={`${path}/Modify`}>
+        <Route path={`${path}/modify`}>
           <SupplierModify />
         </Route>
       </Switch>

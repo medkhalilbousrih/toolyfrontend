@@ -16,5 +16,10 @@ const getAll = async () => {
   const info = await axios.get("/api/users/mydata", config());
   return info.data;
 };
-const supplierService = { getAll };
+
+const updateProfile = async (profile) => {
+  const info = await axios.put("/api/users", profile, config());
+  return info.data;
+};
+const supplierService = { getAll, updateProfile };
 export default supplierService;

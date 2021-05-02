@@ -180,7 +180,8 @@ const Sep = styled.div`
 
 const StyledLink = styled(Link)`
   img {
-    max-width: 100%;
+    width: 4rem;
+    height: 5rem;
     border-radius: 50%;
   }
 `;

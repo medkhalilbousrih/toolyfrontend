@@ -10,7 +10,7 @@ import About from "./components/About/About";
 import Signin from "./components/Signin/Signin";
 import Catalogue from "./components/catalogue/Catalogue";
 import SignInSide from "./components/ClientSignup/SignInSide";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { RoleContext } from "./contexts/RoleContext";
 import Supplier from "./components/thesupplier/Supplier";
 import Client from "./components/theclient/client";
