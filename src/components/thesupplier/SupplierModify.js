@@ -1,12 +1,10 @@
-import { Form, Button, Alert } from "react-bootstrap";
+import { Form, Button, Alert, Col } from "react-bootstrap";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Paper from "@material-ui/core/Paper";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
-import Col from "react-bootstrap/Col";
+import supplierService from "./services/supplier";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,39 +24,51 @@ const useStyles = makeStyles((theme) => ({
 
 const SupplierModify = () => {
   const classes = useStyles();
-  const { register, handleSubmit, formState, errors } = useForm();
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => {
+    const info = new FormData();
+    info.append("email", data.email);
+    info.append("phoneNumber", data.phoneNumber);
+    info.append("state", data.state);
+    info.append("city", data.city);
+    info.append("password", data.email);
+    info.append("passwordVerification", data.passwordVerfication);
+    info.append("imageUrl", data.imageUrl[0]);
+
+    supplierService.updateProfile(info).then((res) => {
+      console.log(res);
+    });
+  };
+
   return (
     <>
       <Container>
         <Title>
           <h1>
-            <i class="fas fa-user-edit"></i> Edit Profile
+            <i className="fas fa-user-edit"></i> Edit Profile
           </h1>
         </Title>
         <Grid container component="main" className={classes.root}>
           <CssBaseline />
-          <Grid item xs={12} sm={8} md={9} square>
+          <Grid item xs={12} sm={8} md={9}>
             <div>
-              <Form className="testform">
+              <Form className="testform" onSubmit={handleSubmit(onSubmit)}>
                 <Form.Group>
                   <Form.File
                     id="exampleFormControlFile1"
                     label="Put Your Image"
+                    name="imageUrl"
+                    ref={register}
                   />
                 </Form.Group>
-                <Form.Group controlId="formBasicEmail">
+                <Form.Group>
                   <Form.Label>Email address</Form.Label>
                   <Form.Control
                     type="email"
                     placeholder="Enter email"
                     name="email"
+                    ref={register}
                   />
-
-                  {errors.email && (
-                    <Alert variant="danger">
-                      Please provide an email adress
-                    </Alert>
-                  )}
                 </Form.Group>
                 <Grid item xs={12} sm={8} md={6}>
                   <Form.Row>
@@ -69,6 +79,7 @@ const SupplierModify = () => {
                           type="Number"
                           placeholder="Enter phonenumber"
                           name="phoneNumber"
+                          ref={register}
                         />
                       </Form.Group>
                     </Col>
@@ -78,8 +89,13 @@ const SupplierModify = () => {
                 <Form.Row>
                   <Form.Group as={Col} controlId="formGridState">
                     <Form.Label>State</Form.Label>
-                    <Form.Control as="select" defaultValue="Choose...">
-                      <option>Choose...</option>
+                    <Form.Control
+                      as="select"
+                      defaultValue="unknown"
+                      name="state"
+                      ref={register}
+                    >
+                      <option value="unknown">Choose...</option>
                       <option>Tunis</option>
                       <option>Ariana</option>
                       <option>Ben Arous</option>
@@ -109,27 +125,34 @@ const SupplierModify = () => {
 
                   <Form.Group as={Col} controlId="formGridCity">
                     <Form.Label>City</Form.Label>
-                    <Form.Control />
+                    <Form.Control
+                      type="text"
+                      placeholder="city"
+                      name="city"
+                      ref={register}
+                    />
                   </Form.Group>
                 </Form.Row>
                 <Form.Row>
                   <Col>
-                    <Form.Group column className="testfromgroupe">
+                    <Form.Group className="testfromgroupe">
                       <Form.Label>Password</Form.Label>
                       <Form.Control
                         type="password"
                         placeholder="Password"
                         name="password"
+                        ref={register}
                       />
                     </Form.Group>
                   </Col>
                   <Col>
-                    <Form.Group column className="testfromgroupe">
+                    <Form.Group className="testfromgroupe">
                       <Form.Label>Password Verification</Form.Label>
                       <Form.Control
                         type="password"
                         placeholder="Password"
                         name="passwordVerification"
+                        ref={register}
                       />
                     </Form.Group>
                   </Col>
