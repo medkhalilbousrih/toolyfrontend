@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import ProfileModify from "./ProfileModify/PorfileModify";
+
 import {
   Route,
   Switch,
@@ -22,7 +22,7 @@ const ClientProfileInfo = ({ data }) => {
             </YellowLittleInfo>
             <YellowLittleInfo>
               <div>Birthday</div>
-              <div>July,03 1996</div>
+              <div>{data.birthday}</div>
             </YellowLittleInfo>
             <YellowLittleInfo>
               <div>Phone Number</div>
@@ -32,11 +32,14 @@ const ClientProfileInfo = ({ data }) => {
           <Infocont>
             <YellowLittleInfo>
               <div>Adress</div>
-              <div>15 Street Maycen</div>
+              <div>{data.address.street}</div>
             </YellowLittleInfo>
             <YellowLittleInfo>
               <div>City</div>
-              <div>July,03 1996</div>
+              <div>
+                {" "}
+                {data.address.state},{data.address.city}
+              </div>
             </YellowLittleInfo>
             <YellowLittleInfo>
               <div>Role</div>

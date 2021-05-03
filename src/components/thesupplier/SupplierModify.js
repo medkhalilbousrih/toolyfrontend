@@ -91,11 +91,11 @@ const SupplierModify = () => {
                     <Form.Label>State</Form.Label>
                     <Form.Control
                       as="select"
-                      defaultValue="unknown"
+                      defaultValue=""
                       name="state"
                       ref={register}
                     >
-                      <option value="unknown">Choose...</option>
+                      <option value="">Choose...</option>
                       <option>Tunis</option>
                       <option>Ariana</option>
                       <option>Ben Arous</option>

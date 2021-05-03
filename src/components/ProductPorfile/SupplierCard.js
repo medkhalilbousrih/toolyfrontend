@@ -5,6 +5,9 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 
 import Button from "react-bootstrap/Button";
+import { useState } from "react";
+import ProductModify from "./ProductModify/ProductModify";
+import PorductDelete from "./ProductDelete/ProductDelete";
 
 const useStyles = makeStyles({
   rootcard3: {
@@ -26,6 +29,8 @@ const useStyles = makeStyles({
 
 const SupplierCard = () => {
   const classes = useStyles();
+  const [buttonPopup, setbuttonPopup] = useState(false);
+  const [deletePopup, setdeletePopup] = useState(false);
 
   return (
     <>
@@ -36,15 +41,23 @@ const SupplierCard = () => {
             owner of this tool
           </Typography>
 
-          <Button block variant="warning">
+          <Button onClick={() => setbuttonPopup(true)} block variant="warning">
             Modify Product
           </Button>
 
-          <Button block variant="dark">
+          <Button onClick={() => setdeletePopup(true)} block variant="dark">
             Delete Product
           </Button>
         </CardContent>
       </Card>
+      <ProductModify
+        trigger={buttonPopup}
+        setTrigger={setbuttonPopup}
+      ></ProductModify>
+      <PorductDelete
+        trigger={deletePopup}
+        setTrigger={setdeletePopup}
+      ></PorductDelete>
     </>
   );
 };

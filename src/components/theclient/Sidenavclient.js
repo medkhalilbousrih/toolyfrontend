@@ -2,7 +2,7 @@ import { Route, Switch, useRouteMatch } from "react-router-dom";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import ClientContainer from "./ClientContainer";
-import ProfileModify from "./ProfileModify/PorfileModify";
+import ProfileModify from "./PorfileModify";
 
 const Sidenavclient = () => {
   let { path, url } = useRouteMatch();
