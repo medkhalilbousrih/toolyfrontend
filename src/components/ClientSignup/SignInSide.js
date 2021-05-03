@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
+import axios from "axios";
+import styled from "styled-components";
+import { RoleContext } from "../../contexts/RoleContext";
+import { Form, Button, Alert } from "react-bootstrap";
+import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
+import FacebookLogin from "react-facebook-login";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import signinService from "../Signin/services/signin";
 import "./SignInSide.css";
-import styled from "styled-components";
-import { Form, Button, Alert } from "react-bootstrap";
-import { useForm } from "react-hook-form";
-import axios from "axios";
-import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -54,14 +57,38 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignInSide() {
   const classes = useStyles();
-  const { register, handleSubmit, formState, errors } = useForm();
   const history = useHistory();
+  const { register, handleSubmit, formState, errors } = useForm();
+  const [role, setRole] = useContext(RoleContext);
+
   const onSubmit = async (data) => {
     try {
       await axios.post("/api/users", data);
       history.push("/login");
     } catch (exception) {
       console.log(exception.response);
+    }
+  };
+  const responseFacebookClient = async (res) => {
+    const connectedUser = await signinService.loginFb({
+      ...res,
+      role: "client",
+    });
+    setRole(connectedUser.data.role);
+    history.push("/catalogue");
+  };
+
+  const responseFacebookSupplier = async (res) => {
+    console.log(res);
+    try {
+      const connectedUser = await signinService.loginFb({
+        ...res,
+        role: "supplier",
+      });
+      setRole(connectedUser.data.role);
+      history.push("/catalogue");
+    } catch (err) {
+      console.log(err.response);
     }
   };
 
@@ -82,7 +109,6 @@ export default function SignInSide() {
               AND PICK OR RENT A TOOL
             </Typography>
           </TypoPhrase>
-
           <Form className="testform" onSubmit={handleSubmit(onSubmit)}>
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
@@ -98,11 +124,11 @@ export default function SignInSide() {
               )}
             </Form.Group>
             <Form.Group className="testfromgroupe">
-              <Form.Label>Username</Form.Label>
+              <Form.Label>Name</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter username"
-                name="username"
+                placeholder="Enter name"
+                name="name"
                 ref={register}
               />
             </Form.Group>
@@ -158,6 +184,24 @@ export default function SignInSide() {
               Submit
             </Button>
           </Form>
+          <div>
+            <FacebookLogin
+              appId="554786282156836"
+              fields="name,email,picture"
+              callback={responseFacebookClient}
+              textButton="Login With Facebook Client"
+              cssClass="fb"
+            />
+          </div>
+          <div>
+            <FacebookLogin
+              appId="554786282156836"
+              fields="name,email,picture"
+              callback={responseFacebookSupplier}
+              textButton="Login With Facebook Supplier"
+              cssClass="fb"
+            />
+          </div>
         </div>
       </Grid>
     </Grid>

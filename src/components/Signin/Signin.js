@@ -1,5 +1,4 @@
 import { useContext, useState } from "react";
-import axios from "axios";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "react-bootstrap/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -12,7 +11,10 @@ import { useForm } from "react-hook-form";
 import { Form, Alert } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { RoleContext } from "../../contexts/RoleContext";
+import signinService from "./services/signin";
+import FacebookLogin from "react-facebook-login";
 import "./Signin.css";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "100vh",
@@ -63,17 +65,20 @@ export default function SignIn() {
 
   const onSubmit = async (data) => {
     try {
-      const connectedUser = await axios.post("/api/login", data);
-      window.localStorage.setItem(
-        "connectedUser",
-        JSON.stringify(connectedUser.data)
-      );
+      const connectedUser = await signinService.login();
       setRole(connectedUser.data.role);
       history.push("/catalogue");
     } catch (exception) {
       setMsg(exception.response.data);
     }
   };
+
+  const loginFb = async (res) => {
+    const connectedUser = await signinService.loginFb(res);
+    setRole(connectedUser.data.role);
+    history.push("/catalogue");
+  };
+
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
@@ -97,12 +102,12 @@ export default function SignIn() {
 
           <Form className="signinform" onSubmit={handleSubmit(onSubmit)}>
             <Form.Group>
-              <Form.Label>Username</Form.Label>
+              <Form.Label>Email Address</Form.Label>
               <Form.Control
-                type="text"
-                placeholder="Enter username"
+                type="email"
+                placeholder="Enter Email"
                 ref={register}
-                name="username"
+                name="email"
               />
             </Form.Group>
             <Form.Group controlId="formBasicPassword">
@@ -119,6 +124,15 @@ export default function SignIn() {
             </Button>
             {msg && <Alert variant="danger">{msg}</Alert>}
           </Form>
+          <div>
+            <FacebookLogin
+              appId="554786282156836"
+              fields="name,email,picture"
+              textButton="Login With Facebook"
+              callback={loginFb}
+              cssClass="fbl"
+            />
+          </div>
         </div>
       </Grid>
     </Grid>

@@ -63,7 +63,7 @@ const CatalogueCards = ({ tool }) => {
                       />
                       &nbsp;&nbsp;
                       <p style={{ marginTop: "0.2rem" }}>
-                        {tool.supplier.username}
+                        {tool.supplier.name}
                       </p>
                     </Av>
                   </DD>
