@@ -7,6 +7,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import Col from "react-bootstrap/Col";
+import ClientService from "../thesupplier/services/supplier";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,7 +27,23 @@ const useStyles = makeStyles((theme) => ({
 
 const ProfileModify = () => {
   const classes = useStyles();
-  const { register, handleSubmit, formState, errors } = useForm();
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => {
+    const info = new FormData();
+    info.append("imageUrl", data.imageUrl[0]);
+    info.append("email", data.email);
+    info.append("birthday", data.birthday);
+    info.append("phoneNumber", data.phoneNumber);
+    info.append("street", data.street);
+    info.append("state", data.state);
+    info.append("city", data.city);
+    info.append("password", data.email);
+    info.append("passwordVerification", data.passwordVerfication);
+
+    ClientService.updateProfile(info).then((res) => {
+      console.log(res);
+    });
+  };
   return (
     <>
       <Container>
@@ -39,11 +56,13 @@ const ProfileModify = () => {
           <CssBaseline />
           <Grid item xs={12} sm={8} md={9} square>
             <div>
-              <Form className="testform">
+              <Form className="testform" onSubmit={handleSubmit(onSubmit)}>
                 <Form.Group>
                   <Form.File
                     id="exampleFormControlFile1"
                     label="Put Your Image"
+                    name="imageUrl"
+                    ref={register}
                   />
                 </Form.Group>
                 <Form.Group controlId="formBasicEmail">
@@ -52,13 +71,8 @@ const ProfileModify = () => {
                     type="email"
                     placeholder="Enter email"
                     name="email"
+                    ref={register}
                   />
-
-                  {errors.email && (
-                    <Alert variant="danger">
-                      Please provide an email adress
-                    </Alert>
-                  )}
                 </Form.Group>
                 <Form.Row>
                   <Col>
@@ -66,8 +80,9 @@ const ProfileModify = () => {
                       <Form.Label>Select Date</Form.Label>
                       <Form.Control
                         type="date"
-                        name="dd"
+                        name="birthday"
                         placeholder="Date of Birth"
+                        ref={register}
                       />
                     </Form.Group>
                   </Col>
@@ -78,20 +93,30 @@ const ProfileModify = () => {
                         type="phoneNumber"
                         placeholder="Enter phonenumber"
                         name="phoneNumber"
+                        ref={register}
                       />
                     </Form.Group>
                   </Col>
                 </Form.Row>
                 <Form.Group controlId="formGridAddress2">
                   <Form.Label>Your Local Address</Form.Label>
-                  <Form.Control placeholder="Apartment, studio, or floor" />
+                  <Form.Control
+                    name="street"
+                    ref={register}
+                    placeholder="Apartment, studio, or floor"
+                  />
                 </Form.Group>
 
                 <Form.Row>
                   <Form.Group as={Col} controlId="formGridState">
                     <Form.Label>State</Form.Label>
-                    <Form.Control as="select" defaultValue="Choose...">
-                      <option>Choose...</option>
+                    <Form.Control
+                      as="select"
+                      name="state"
+                      defaultValue=""
+                      ref={register}
+                    >
+                      <option value="">Choose...</option>
                       <option>Tunis</option>
                       <option>Ariana</option>
                       <option>Ben Arous</option>
@@ -121,7 +146,12 @@ const ProfileModify = () => {
 
                   <Form.Group as={Col} controlId="formGridCity">
                     <Form.Label>City</Form.Label>
-                    <Form.Control />
+                    <Form.Control
+                      type="text"
+                      placeholder="city"
+                      name="city"
+                      ref={register}
+                    />
                   </Form.Group>
                 </Form.Row>
                 <Form.Row>
@@ -132,6 +162,7 @@ const ProfileModify = () => {
                         type="password"
                         placeholder="Password"
                         name="password"
+                        ref={register}
                       />
                     </Form.Group>
                   </Col>
@@ -142,6 +173,7 @@ const ProfileModify = () => {
                         type="password"
                         placeholder="Password"
                         name="passwordVerification"
+                        ref={register}
                       />
                     </Form.Group>
                   </Col>

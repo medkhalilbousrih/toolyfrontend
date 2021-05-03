@@ -2,6 +2,9 @@ import styled from "styled-components";
 import Figure from "react-bootstrap/Figure";
 import Avatar from "@material-ui/core/Avatar";
 import { makeStyles } from "@material-ui/core/styles";
+import { useHistory } from "react-router-dom";
+import { Router } from "react-router-dom";
+import React from "react";
 
 const useStyles = makeStyles((theme) => ({
   small: {
@@ -11,10 +14,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 const RentingCard = ({ data }) => {
   const classes = useStyles();
+  const history = useHistory();
 
   return (
     <>
-      <RentalCard>
+      <RentalCard
+        onClick={() => {
+          history.push(`/product/${data.id}`);
+        }}
+      >
         <Bloc1>
           <Figure>
             <Figure.Image

@@ -129,14 +129,14 @@ const ProductCard = () => {
                   color="textSecondary"
                   gutterBottom
                 >
-                  Origin Localisation
+                  Original Location
                 </Typography>
                 <Typography
                   className={classes.titlebluefonce}
                   color="textSecondary"
                   gutterBottom
                 >
-                  ZZZZZZZZZZZZZZZ
+                  {product.tags[0]}
                 </Typography>
               </Flex1>
 
@@ -167,6 +167,27 @@ const ProductCard = () => {
                 </Typography>
                 <Typography className={classes.Numero} gutterBottom>
                   {product.supplier.phoneNumber}
+                </Typography>
+              </Flex1>
+              <Flex1>
+                <Typography
+                  color="textSecondary"
+                  style={{
+                    fontSize: "14px",
+                  }}
+                  gutterBottom
+                >
+                  Tags
+                </Typography>
+                <Typography
+                  style={{
+                    color: "black",
+                    fontWeight: "bold",
+                    fontSize: "14px",
+                  }}
+                  gutterBottom
+                >
+                  {product.tags[0]}
                 </Typography>
               </Flex1>
             </CardContent>

@@ -25,6 +25,11 @@ const getCategories = async () => {
   return categories.data;
 };
 
-const toolService = { create, getCategories };
+const toolDelete = async (id) => {
+  const deleteTool = await axios.delete(baseUrl + "/id");
+  return deleteTool.data;
+};
+
+const toolService = { create, getCategories, toolDelete };
 
 export default toolService;
