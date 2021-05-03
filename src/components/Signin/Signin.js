@@ -65,7 +65,8 @@ export default function SignIn() {
 
   const onSubmit = async (data) => {
     try {
-      const connectedUser = await signinService.login();
+      console.log(data);
+      const connectedUser = await signinService.login(data);
       setRole(connectedUser.data.role);
       history.push("/catalogue");
     } catch (exception) {
