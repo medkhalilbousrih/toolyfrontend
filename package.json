@@ -2,7 +2,7 @@
   "name": "toolyfrontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://tooly-tn.herokuapp.com",
+  "proxy": "https://tooly-tn.herokuapp.com/",
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
@@ -15,6 +15,7 @@
     "react": "^17.0.2",
     "react-bootstrap": "^1.5.2",
     "react-dom": "^17.0.2",
+    "react-facebook-login": "^4.1.1",
     "react-hook-form": "^6.15.5",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",

@@ -21,3 +21,11 @@
   background-color: #353535;
   color: white;
 }
+.fb {
+  width: 36rem;
+  height: 2.5rem;
+  background-color: #4c69ba;
+  color: white;
+  border-radius: 5px;
+  margin-top: 1rem;
+}

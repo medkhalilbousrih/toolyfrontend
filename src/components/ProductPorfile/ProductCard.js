@@ -163,7 +163,7 @@ const ProductCard = () => {
                   color="textSecondary"
                   gutterBottom
                 >
-                  {product.supplier.username}
+                  {product.supplier.name}
                 </Typography>
                 <Typography className={classes.Numero} gutterBottom>
                   {product.supplier.phoneNumber}

@@ -27,11 +27,11 @@ const SupplierModify = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     const info = new FormData();
-    info.append("email", data.email);
+    info.append("name", data.name);
     info.append("phoneNumber", data.phoneNumber);
     info.append("state", data.state);
     info.append("city", data.city);
-    info.append("password", data.email);
+    info.append("password", data.password);
     info.append("passwordVerification", data.passwordVerfication);
     info.append("imageUrl", data.imageUrl[0]);
 
@@ -62,11 +62,11 @@ const SupplierModify = () => {
                   />
                 </Form.Group>
                 <Form.Group>
-                  <Form.Label>Email address</Form.Label>
+                  <Form.Label>Name</Form.Label>
                   <Form.Control
-                    type="email"
-                    placeholder="Enter email"
-                    name="email"
+                    type="name"
+                    placeholder="Enter name"
+                    name="name"
                     ref={register}
                   />
                 </Form.Group>

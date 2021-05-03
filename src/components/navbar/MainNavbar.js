@@ -125,7 +125,7 @@ const MainNavbar = () => {
                   &nbsp;
                   {
                     JSON.parse(window.localStorage.getItem("connectedUser"))
-                      ?.username
+                      ?.name
                   }
                 </span>
               </StyledLink>

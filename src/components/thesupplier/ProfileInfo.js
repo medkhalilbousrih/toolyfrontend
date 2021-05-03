@@ -5,7 +5,7 @@ const ProfileInfo = ({ data }) => {
     <>
       <Profile>
         <Title>
-          <h2>{data.username}</h2>
+          <h2>{data.name}</h2>
         </Title>
         <div>
           <Infocont>
