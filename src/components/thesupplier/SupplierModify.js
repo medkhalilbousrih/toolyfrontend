@@ -32,9 +32,9 @@ const SupplierModify = () => {
     info.append("state", data.state);
     info.append("city", data.city);
     info.append("password", data.password);
-    info.append("passwordVerification", data.passwordVerfication);
+    info.append("passwordVerification", data.passwordVerification);
     info.append("imageUrl", data.imageUrl[0]);
-
+    console.log(data);
     supplierService.updateProfile(info).then((res) => {
       console.log(res);
     });
