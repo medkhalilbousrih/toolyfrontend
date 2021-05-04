@@ -27,6 +27,8 @@ const AddTool = () => {
       tool.append("brand", data.brand);
       tool.append("description", data.description);
       tool.append("price", data.price);
+      tool.append("state", data.state);
+      tool.append("city", data.city);
       for (const image of data.toolImages) {
         tool.append("toolImages", image);
       }
@@ -85,7 +87,12 @@ const AddTool = () => {
             <Form.Row>
               <Form.Group as={Col} controlId="formGridState">
                 <Form.Label>State</Form.Label>
-                <Form.Control as="select" defaultValue="Choose...">
+                <Form.Control
+                  as="select"
+                  name="state"
+                  ref={register}
+                  defaultValue="Choose..."
+                >
                   <option>Choose...</option>
                   <option>Tunis</option>
                   <option>Ariana</option>
@@ -116,7 +123,7 @@ const AddTool = () => {
 
               <Form.Group as={Col} controlId="formGridCity">
                 <Form.Label>City</Form.Label>
-                <Form.Control />
+                <Form.Control name="city" ref={register}></Form.Control>
               </Form.Group>
             </Form.Row>
           </StyledGroup>

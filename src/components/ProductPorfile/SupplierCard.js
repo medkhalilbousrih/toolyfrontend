@@ -7,6 +7,15 @@ import Button from "react-bootstrap/Button";
 import { useState } from "react";
 import ProductModify from "./ProductModify/ProductModify";
 import PorductDelete from "./ProductDelete/ProductDelete";
+import { NavLink, Redirect } from "react-router-dom";
+
+import Modify from "./Modify";
+import {
+  Route,
+  Switch,
+  useRouteMatch,
+  BrowserRouter as Router,
+} from "react-router-dom";
 
 const useStyles = makeStyles({
   rootcard3: {
@@ -27,6 +36,7 @@ const useStyles = makeStyles({
 });
 
 const SupplierCard = () => {
+  let { path, url } = useRouteMatch();
   const classes = useStyles();
   const [buttonPopup, setbuttonPopup] = useState(false);
   const [deletePopup, setdeletePopup] = useState(false);
@@ -47,6 +57,18 @@ const SupplierCard = () => {
           <Button onClick={() => setdeletePopup(true)} block variant="dark">
             Delete Product
           </Button>
+          <div>
+            <LinkStyle
+              to={`${url}/Modify`}
+              activeStyle={{
+                backgroundColor: "#353535",
+                color: "white",
+              }}
+            >
+              {" "}
+              Modif Test
+            </LinkStyle>
+          </div>
         </CardContent>
       </Card>
       <ProductModify
@@ -57,8 +79,16 @@ const SupplierCard = () => {
         trigger={deletePopup}
         setTrigger={setdeletePopup}
       ></PorductDelete>
+      <Switch>
+        <Route path={`${path}/modify`}>
+          <Modify />
+        </Route>
+      </Switch>
     </>
   );
 };
 
+const LinkStyle = styled(NavLink)`
+  color: Black;
+`;
 export default SupplierCard;
