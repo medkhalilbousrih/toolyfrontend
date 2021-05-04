@@ -3,15 +3,18 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import supplierService from "../../thesupplier/services/tools";
 import { useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const ProductDelete = (props) => {
+  const history = useHistory();
   const { id } = useParams();
   const deleteTool = () => {
     supplierService
       .toolDelete(id)
       .then((res) => {
-        props.setTrigger(false);
-        console.log("aaa");
+        //props.setTrigger(false);
+        history.push("/profile");
+        console.log("Deleted");
       })
       .catch((err) => console.log(err.response));
   };

@@ -4,8 +4,10 @@ import { useForm } from "react-hook-form";
 import toolService from "./services/tools";
 import styled from "styled-components";
 import Col from "react-bootstrap/Col";
+import { useHistory } from "react-router-dom";
 
 const AddTool = () => {
+  const history = useHistory();
   const { register, handleSubmit } = useForm();
   const [categories, setCategories] = useState([]);
   useEffect(() => {
@@ -29,6 +31,7 @@ const AddTool = () => {
         tool.append("toolImages", image);
       }
       await toolService.create(tool);
+      history.push("/profile");
     } catch (exc) {
       console.log(exc.response);
     }

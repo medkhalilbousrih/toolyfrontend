@@ -30,14 +30,17 @@ function ProductModify(props) {
       <Popup>
         <PopupInner>
           <Btn>
-            <i onClick={() => props.setTrigger(false)} class="fas fa-times"></i>
+            <i
+              onClick={() => props.setTrigger(false)}
+              className="fas fa-times"
+            ></i>
           </Btn>
 
           {props.children}
           <StyledForm onSubmit={handleSubmit(onSubmit)}>
             <Title>
               <h1>
-                <i className="fas fa-plus-square"> </i>&nbsp;ADD TOOL
+                <i className="fas fa-plus-square"> </i>&nbsp;UPDATE TOOL
               </h1>
             </Title>
             <StyledGroup>
@@ -69,7 +72,14 @@ function ProductModify(props) {
             </StyledGroup>
             <StyledGroup controlId="exampleForm.SelectCustom">
               <Form.Label>Categories</Form.Label>
-              <Form.Control as="select" custom name="category" ref={register}>
+              <Form.Control
+                as="select"
+                custom
+                name="category"
+                defaultValue=""
+                ref={register}
+              >
+                <option value="">Choose category</option>
                 <option>construction</option>
                 <option>electricity</option>
                 <option>gardening</option>

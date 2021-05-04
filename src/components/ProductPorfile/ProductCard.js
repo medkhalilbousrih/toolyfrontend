@@ -136,7 +136,7 @@ const ProductCard = () => {
                   color="textSecondary"
                   gutterBottom
                 >
-                  {product.tags[0]}
+                  xxxx
                 </Typography>
               </Flex1>
 

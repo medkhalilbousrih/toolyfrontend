@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import supplierService from "./services/supplier";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SupplierModify = () => {
+  const history = useHistory();
   const classes = useStyles();
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
@@ -36,6 +38,7 @@ const SupplierModify = () => {
     info.append("imageUrl", data.imageUrl[0]);
     console.log(data);
     supplierService.updateProfile(info).then((res) => {
+      history.push("/profile");
       console.log(res);
     });
   };
