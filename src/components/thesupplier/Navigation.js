@@ -60,7 +60,7 @@ const Navigation = () => {
             }}
           >
             {" "}
-            <i class="fas fa-user-edit"></i> Edit Profile
+            <i className="fas fa-user-edit"></i> Edit Profile
           </LinkStyle>
         </p>
       </SupNav>
