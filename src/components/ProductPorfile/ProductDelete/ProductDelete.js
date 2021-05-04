@@ -1,9 +1,21 @@
 import styled from "styled-components";
 import React from "react";
 import Button from "react-bootstrap/Button";
-import deleteService from "../../thesupplier/services/tools";
+import supplierService from "../../thesupplier/services/tools";
+import { useParams } from "react-router-dom";
 
 const ProductDelete = (props) => {
+  const { id } = useParams();
+  const deleteTool = () => {
+    supplierService
+      .toolDelete(id)
+      .then((res) => {
+        props.setTrigger(false);
+        console.log("aaa");
+      })
+      .catch((err) => console.log(err.response));
+  };
+
   return props.trigger ? (
     <>
       <Popup>
@@ -18,7 +30,12 @@ const ProductDelete = (props) => {
             You are requesting to delete this Product ! Are You Sure ?
           </h3>
           <YesNo>
-            <Button style={{ width: "25%" }} block variant="warning">
+            <Button
+              style={{ width: "25%" }}
+              block
+              variant="warning"
+              onClick={() => deleteTool()}
+            >
               Yes
             </Button>
             <Button
