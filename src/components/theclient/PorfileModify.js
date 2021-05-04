@@ -8,6 +8,7 @@ import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import Col from "react-bootstrap/Col";
 import ClientService from "../thesupplier/services/supplier";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ProfileModify = () => {
+  const history = useHistory();
   const classes = useStyles();
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
@@ -41,6 +43,7 @@ const ProfileModify = () => {
     info.append("passwordVerification", data.passwordVerfication);
 
     ClientService.updateProfile(info).then((res) => {
+      history.push("/profile");
       console.log(res);
     });
   };
