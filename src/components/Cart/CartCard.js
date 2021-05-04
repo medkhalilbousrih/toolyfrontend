@@ -70,7 +70,7 @@ const CartCard = ({ item }) => {
                 className={classes.small}
               />
 
-              <p style={{ paddingLeft: "0.3rem" }}>{tool?.supplier.username}</p>
+              <p style={{ paddingLeft: "0.3rem" }}>{tool?.supplier.name}</p>
             </div>
           </ToolName>
           <ToolName>

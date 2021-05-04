@@ -3,9 +3,28 @@ import styled from "styled-components";
 import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import Col from "react-bootstrap/Col";
-import { useState, useEffect } from "react";
+import toolService from "../../thesupplier/services/tools";
+import { useParams } from "react-router-dom";
 
 function ProductModify(props) {
+  const { register, handleSubmit } = useForm();
+  const { id } = useParams();
+  const onSubmit = (data) => {
+    const tool = new FormData();
+    tool.append("name", data.name);
+    tool.append("category", data.category);
+    tool.append("brand", data.brand);
+    tool.append("description", data.description);
+    tool.append("price", data.price);
+    for (const image of data.toolImages) {
+      tool.append("toolImages", image);
+    }
+    toolService
+      .toolUpdate(id, tool)
+      .then((res) => console.log("success"))
+      .catch((err) => console.log(err));
+  };
+
   return props.trigger ? (
     <>
       <Popup>
@@ -15,7 +34,7 @@ function ProductModify(props) {
           </Btn>
 
           {props.children}
-          <StyledForm>
+          <StyledForm onSubmit={handleSubmit(onSubmit)}>
             <Title>
               <h1>
                 <i className="fas fa-plus-square"> </i>&nbsp;ADD TOOL
@@ -27,6 +46,7 @@ function ProductModify(props) {
                 type="text"
                 placeholder="Your Tool Name Here."
                 name="name"
+                ref={register}
               />
             </StyledGroup>
             <StyledGroup>
@@ -35,6 +55,7 @@ function ProductModify(props) {
                 type="text"
                 placeholder="The Brand of the Tool"
                 name="brand"
+                ref={register}
               />
             </StyledGroup>
             <StyledGroup>
@@ -43,11 +64,12 @@ function ProductModify(props) {
                 type="text"
                 placeholder="The Price of a single day"
                 name="price"
+                ref={register}
               />
             </StyledGroup>
             <StyledGroup controlId="exampleForm.SelectCustom">
               <Form.Label>Categories</Form.Label>
-              <Form.Control as="select" custom name="category">
+              <Form.Control as="select" custom name="category" ref={register}>
                 <option>construction</option>
                 <option>electricity</option>
                 <option>gardening</option>
@@ -57,7 +79,12 @@ function ProductModify(props) {
               <Form.Row>
                 <Form.Group as={Col} controlId="formGridState">
                   <Form.Label>State</Form.Label>
-                  <Form.Control as="select" defaultValue="">
+                  <Form.Control
+                    as="select"
+                    defaultValue=""
+                    ref={register}
+                    name="state"
+                  >
                     <option value="">Choose...</option>
                     <option>Tunis</option>
                     <option>Ariana</option>
@@ -86,7 +113,12 @@ function ProductModify(props) {
                   </Form.Control>
                 </Form.Group>
 
-                <Form.Group as={Col} controlId="formGridCity">
+                <Form.Group
+                  as={Col}
+                  controlId="formGridCity"
+                  name="city"
+                  ref={register}
+                >
                   <Form.Label>City</Form.Label>
                   <Form.Control />
                 </Form.Group>
@@ -94,10 +126,15 @@ function ProductModify(props) {
             </StyledGroup>
             <StyledGroup controlId="exampleForm.ControlTextarea1">
               <Form.Label>Description</Form.Label>
-              <Form.Control as="textarea" rows={3} name="description" />
+              <Form.Control
+                as="textarea"
+                rows={3}
+                name="description"
+                ref={register}
+              />
             </StyledGroup>
             <StyledGroup>
-              <input type="file" name="toolImages" multiple />
+              <input type="file" name="toolImages" ref={register} multiple />
             </StyledGroup>
             <StyledGroup>
               <StyledButton variant="primary" type="submit">

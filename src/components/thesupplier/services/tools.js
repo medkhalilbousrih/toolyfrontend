@@ -26,10 +26,18 @@ const getCategories = async () => {
 };
 
 const toolDelete = async (id) => {
-  const deleteTool = await axios.delete(baseUrl + "/id");
-  return deleteTool.data;
+  await axios.delete(`${baseUrl}/${id}`, config());
 };
 
-const toolService = { create, getCategories, toolDelete };
+const toolUpdate = async (id, tooll) => {
+  const updatedTool = await axios.put(
+    `${baseUrl}/update/${id}`,
+    tooll,
+    config()
+  );
+  return updatedTool.data;
+};
+
+const toolService = { create, getCategories, toolDelete, toolUpdate };
 
 export default toolService;
