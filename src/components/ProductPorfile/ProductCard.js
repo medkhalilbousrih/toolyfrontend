@@ -58,12 +58,19 @@ const useStyles = makeStyles({
 
 const ProductCard = () => {
   const user = JSON.parse(window.localStorage.getItem("connectedUser"));
+  const [tool, setTool] = useState();
   const [product, setProduct] = useState(null);
   const { id } = useParams();
   const classes = useStyles();
   useEffect(() => {
     productService.getInfo(id).then((res) => {
       setProduct(res);
+    });
+  }, []);
+
+  useEffect(() => {
+    productService.getInfo(id).then((res) => {
+      setTool(res);
     });
   }, []);
 
@@ -136,7 +143,7 @@ const ProductCard = () => {
                   color="textSecondary"
                   gutterBottom
                 >
-                  xxxx
+                  {product.address.state},{product.address.city}
                 </Typography>
               </Flex1>
 
@@ -167,6 +174,27 @@ const ProductCard = () => {
                 </Typography>
                 <Typography className={classes.Numero} gutterBottom>
                   {product.supplier.phoneNumber}
+                </Typography>
+              </Flex1>
+              <Flex1>
+                <Typography
+                  color="textSecondary"
+                  style={{
+                    fontSize: "14px",
+                  }}
+                  gutterBottom
+                >
+                  State
+                </Typography>
+                <Typography
+                  style={{
+                    color: "black",
+
+                    fontSize: "14px",
+                  }}
+                  gutterBottom
+                >
+                  {tool?.state}
                 </Typography>
               </Flex1>
               <Flex1>
