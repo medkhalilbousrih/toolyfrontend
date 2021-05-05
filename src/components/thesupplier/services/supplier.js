@@ -21,5 +21,9 @@ const updateProfile = async (profile) => {
   const info = await axios.put("/api/users", profile, config());
   return info.data;
 };
-const supplierService = { getAll, updateProfile };
+
+const deleteAccount = async () => {
+  await axios.delete("/api/users/delete", config());
+};
+const supplierService = { getAll, updateProfile, deleteAccount };
 export default supplierService;

@@ -32,7 +32,9 @@ const AddTool = () => {
       for (const image of data.toolImages) {
         tool.append("toolImages", image);
       }
+      console.log(tool);
       await toolService.create(tool);
+
       history.push("/profile");
     } catch (exc) {
       console.log(exc.response);

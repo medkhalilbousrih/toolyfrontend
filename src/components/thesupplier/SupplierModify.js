@@ -6,6 +6,8 @@ import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import supplierService from "./services/supplier";
 import { useHistory } from "react-router-dom";
+import { useContext } from "react";
+import { RoleContext } from "../../contexts/RoleContext";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,6 +29,8 @@ const SupplierModify = () => {
   const history = useHistory();
   const classes = useStyles();
   const { register, handleSubmit } = useForm();
+  const [role, setRole] = useContext(RoleContext);
+
   const onSubmit = (data) => {
     const info = new FormData();
     info.append("name", data.name);
@@ -36,10 +40,18 @@ const SupplierModify = () => {
     info.append("password", data.password);
     info.append("passwordVerification", data.passwordVerification);
     info.append("imageUrl", data.imageUrl[0]);
-    console.log(data);
+    console.log(data.imageUrl);
     supplierService.updateProfile(info).then((res) => {
       history.push("/profile");
       console.log(res);
+    });
+  };
+
+  const deleteAccount = () => {
+    supplierService.deleteAccount().then((res) => {
+      window.localStorage.clear();
+      setRole(null);
+      history.push("/");
     });
   };
 
@@ -50,6 +62,9 @@ const SupplierModify = () => {
           <h1>
             <i className="fas fa-user-edit"></i> Edit Profile
           </h1>
+          <Button variant="danger" onClick={deleteAccount}>
+            Delete Account
+          </Button>
         </Title>
         <Grid container component="main" className={classes.root}>
           <CssBaseline />

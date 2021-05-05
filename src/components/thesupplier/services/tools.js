@@ -9,7 +9,6 @@ const config = () => {
     return {
       headers: {
         Authorization: `Bearer ${user.token}`,
-        "content-type": "multipart/form-data",
       },
     };
   }
@@ -29,10 +28,10 @@ const toolDelete = async (id) => {
   await axios.delete(`${baseUrl}/${id}`, config());
 };
 
-const toolUpdate = async (id, tooll) => {
+const toolUpdate = async (id, tool) => {
   const updatedTool = await axios.put(
     `${baseUrl}/update/${id}`,
-    tooll,
+    tool,
     config()
   );
   return updatedTool.data;
