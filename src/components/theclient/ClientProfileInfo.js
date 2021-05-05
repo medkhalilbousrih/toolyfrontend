@@ -1,20 +1,11 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-
-import {
-  Route,
-  Switch,
-  useRouteMatch,
-  BrowserRouter as Router,
-} from "react-router-dom";
 
 const ClientProfileInfo = ({ data }) => {
-  let { path, url } = useRouteMatch();
   return (
     <>
       <Profile>
         <Data>
-          <h2>{data.username}</h2>
+          <h2>{data.name}</h2>
           <Infocont>
             <YellowLittleInfo>
               <div>Email</div>
@@ -22,7 +13,7 @@ const ClientProfileInfo = ({ data }) => {
             </YellowLittleInfo>
             <YellowLittleInfo>
               <div>Birthday</div>
-              <div>{data.birthday}</div>
+              <div>{data.birthday?.substring(0, 10) || "unknown"}</div>
             </YellowLittleInfo>
             <YellowLittleInfo>
               <div>Phone Number</div>

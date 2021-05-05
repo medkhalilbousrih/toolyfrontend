@@ -58,12 +58,12 @@ const CatalogueCards = ({ tool }) => {
                     <Av>
                       <Avatar
                         alt="Remy Sharp"
-                        src={tool.supplier.imageUrl}
+                        src={tool.supplier?.imageUrl}
                         className={classes.small}
                       />
                       &nbsp;&nbsp;
                       <p style={{ marginTop: "0.2rem" }}>
-                        {tool.supplier.name}
+                        {tool.supplier?.name}
                       </p>
                     </Av>
                   </DD>
