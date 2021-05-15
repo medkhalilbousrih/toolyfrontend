@@ -14,7 +14,6 @@ const ClientContainer = () => {
     ClientService.getAll()
       .then((res) => {
         setInfo(res);
-        console.log(res);
       })
       .catch((err) => console.log(err.response));
   }, []);

@@ -38,7 +38,7 @@ const CartCard = ({ item }) => {
 
   const handleClick = () => {
     productService
-      .rentTool({ id: item.id, to: item.to })
+      .rentTool({ id: item.id, to: item.to, total: item.total })
       .then((res) => {
         setTool(null);
         const user = JSON.parse(window.localStorage.getItem("connectedUser"));
@@ -55,6 +55,9 @@ const CartCard = ({ item }) => {
         <CCard>
           <ToolName>
             <p>{tool?.name}</p>
+          </ToolName>
+          <ToolName>
+            <p>{item?.total}Dt</p>
           </ToolName>
           <ToolName>
             <div

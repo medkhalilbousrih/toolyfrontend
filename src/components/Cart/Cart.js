@@ -24,6 +24,7 @@ const Cart = () => {
           </h1>
           <TitleDefines>
             <p>TOOL NAME</p>
+            <p>Total</p>
             <p>OWNER</p>
             <p>DISPONABILITY</p>
             <p>STATUS</p>
