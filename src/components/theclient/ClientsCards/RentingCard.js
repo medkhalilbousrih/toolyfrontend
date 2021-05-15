@@ -5,6 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
 import { Router } from "react-router-dom";
 import React from "react";
+import Rate from "../Rate";
 
 const useStyles = makeStyles((theme) => ({
   small: {
@@ -15,15 +16,14 @@ const useStyles = makeStyles((theme) => ({
 const RentingCard = ({ data }) => {
   const classes = useStyles();
   const history = useHistory();
+  const getDetails = () => {
+    history.push("/product/" + data.id);
+  };
 
   return (
     <>
-      <RentalCard
-        onClick={() => {
-          history.push(`/product/${data.id}`);
-        }}
-      >
-        <Bloc1>
+      <RentalCard>
+        <Bloc1 onClick={getDetails}>
           <Figure>
             <Figure.Image
               width={60}
@@ -57,7 +57,7 @@ const RentingCard = ({ data }) => {
           >
             Rental Date
           </p>
-          <p>{data.rentDetails?.from}</p>
+          <p>{data.rentDetails?.from.substring(0, 10)}</p>
         </Bloc2>
         <Bloc2>
           <p
@@ -70,7 +70,7 @@ const RentingCard = ({ data }) => {
           >
             Date of Return
           </p>
-          <p>{data.rentDetails?.to}</p>
+          <p>{data.rentDetails?.to.substring(0, 10)}</p>
         </Bloc2>
         <Bloc2>
           <div>
@@ -83,27 +83,15 @@ const RentingCard = ({ data }) => {
                 marginBottom: "0.5rem",
               }}
             >
-              Tool Owner
+              Rate Tool
             </p>
           </div>
-          <div style={{ display: "flex" }}>
-            <Avatar
-              alt="Remy Sharp"
-              src="/Images/aymen.jpg"
-              className={classes.small}
-            />
-            <div style={{ paddingLeft: "0.3rem" }}>
-              <p>supplier name</p>
-              <p
-                style={{
-                  marginTop: "-1.4rem",
-                  fontWeight: "lighter",
-                  fontSize: "0.7rem",
-                }}
-              >
-                22732763
-              </p>
-            </div>
+          <div
+            style={{
+              marginBottom: "15px",
+            }}
+          >
+            <Rate rating={data.rating} id={data.id} />
           </div>
         </Bloc2>
         <Bloc2>
@@ -117,7 +105,7 @@ const RentingCard = ({ data }) => {
           >
             Total Price
           </p>
-          <p>{data.price}</p>
+          <p>{data.rentDetails?.total}</p>
         </Bloc2>
       </RentalCard>
     </>

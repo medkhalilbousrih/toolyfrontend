@@ -2,7 +2,6 @@ import styled from "styled-components";
 import Figure from "react-bootstrap/Figure";
 import Avatar from "@material-ui/core/Avatar";
 import { makeStyles } from "@material-ui/core/styles";
-
 import RentingCard from "./ClientsCards/RentingCard";
 import ClientService from "../thesupplier/services/supplier";
 import { useEffect, useState } from "react";

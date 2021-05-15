@@ -11,8 +11,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import PriceCard from "./PriceCard";
 import SupplierCard from "./SupplierCard";
 import productService from "./services/product";
-
 import Spinner from "./Spinner";
+import Rating from "./PRating";
 
 const useStyles = makeStyles({
   root: {
@@ -147,22 +147,6 @@ const ProductCard = () => {
                 </Typography>
               </Flex1>
 
-              <Flex1>
-                <Typography
-                  className={classes.titleblueclair}
-                  color="textSecondary"
-                  gutterBottom
-                >
-                  Actual Localisation
-                </Typography>
-                <Typography
-                  className={classes.titlebluefonce}
-                  color="textSecondary"
-                  gutterBottom
-                >
-                  AAAAAAAAAAAA
-                </Typography>
-              </Flex1>
               <br />
               <Flex1>
                 <Typography
@@ -217,6 +201,19 @@ const ProductCard = () => {
                 >
                   {product.tags[0]}
                 </Typography>
+              </Flex1>
+              <Flex1>
+                <Typography
+                  color="textSecondary"
+                  style={{
+                    fontSize: "14px",
+                    marginTop: "6px",
+                  }}
+                  gutterBottom
+                >
+                  Rating<span>(Based on a total of {tool?.rating.total})</span>
+                </Typography>
+                {tool && <Rating rating={tool?.rating} />}
               </Flex1>
             </CardContent>
             <CardActions>
