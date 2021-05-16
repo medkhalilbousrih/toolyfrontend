@@ -57,18 +57,6 @@ const SupplierCard = () => {
           <Button onClick={() => setdeletePopup(true)} block variant="dark">
             Delete Product
           </Button>
-          <div>
-            <LinkStyle
-              to={`${url}/Modify`}
-              activeStyle={{
-                backgroundColor: "#353535",
-                color: "white",
-              }}
-            >
-              {" "}
-              Modif Test
-            </LinkStyle>
-          </div>
         </CardContent>
       </Card>
       <ProductModify
@@ -79,11 +67,6 @@ const SupplierCard = () => {
         trigger={deletePopup}
         setTrigger={setdeletePopup}
       ></PorductDelete>
-      <Switch>
-        <Route path={`${path}/modify`}>
-          <Modify />
-        </Route>
-      </Switch>
     </>
   );
 };
