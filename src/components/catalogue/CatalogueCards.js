@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: "wrap",
     "& > *": {
       margin: theme.spacing(1),
-      width: theme.spacing(90),
+      width: theme.spacing(70),
       height: theme.spacing(20),
     },
   },
@@ -80,7 +80,13 @@ const CatalogueCards = ({ tool }) => {
   );
 };
 
-const CardContainer = styled.div``;
+const CardContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+`;
 const Contenu = styled.div`
   display: flex;
 `;
