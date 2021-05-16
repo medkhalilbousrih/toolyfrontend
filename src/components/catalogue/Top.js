@@ -92,7 +92,7 @@ const Title = styled.div`
   font-family: "Roboto";
   font-weight: normal;
   font-size: 8rem;
-  color: #ffc800;
+  color: white;
   font-weight: 400;
 `;
 const Wh = styled.div`
