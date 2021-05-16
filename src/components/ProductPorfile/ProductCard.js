@@ -154,10 +154,10 @@ const ProductCard = () => {
                   color="textSecondary"
                   gutterBottom
                 >
-                  {product.supplier.name}
+                  Owner
                 </Typography>
                 <Typography className={classes.Numero} gutterBottom>
-                  {product.supplier.phoneNumber}
+                  {product.supplier.name}
                 </Typography>
               </Flex1>
               <Flex1>
@@ -170,14 +170,7 @@ const ProductCard = () => {
                 >
                   State
                 </Typography>
-                <Typography
-                  style={{
-                    color: "black",
-
-                    fontSize: "14px",
-                  }}
-                  gutterBottom
-                >
+                <Typography className={classes.Numero} gutterBottom>
                   {tool?.state}
                 </Typography>
               </Flex1>
