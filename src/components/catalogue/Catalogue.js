@@ -1,6 +1,7 @@
 import CatalogueCards from "./CatalogueCards";
 import { useEffect, useState } from "react";
 import catalogueService from "./services/catalogue";
+import Top from "./Top";
 
 const Catalogue = () => {
   const [tools, setTools] = useState([]);
@@ -13,6 +14,7 @@ const Catalogue = () => {
   console.log(tools);
   return (
     <>
+      <Top />
       {tools.map((tool) => (
         <CatalogueCards key={tool.id} tool={tool} />
       ))}
