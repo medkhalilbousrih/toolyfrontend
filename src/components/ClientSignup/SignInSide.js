@@ -75,7 +75,7 @@ export default function SignInSide() {
       role: "client",
     });
     setRole(connectedUser.data.role);
-    history.push("/catalogue");
+    history.push("/Home");
   };
 
   const responseFacebookSupplier = async (res) => {
@@ -86,7 +86,7 @@ export default function SignInSide() {
         role: "supplier",
       });
       setRole(connectedUser.data.role);
-      history.push("/catalogue");
+      history.push("/Home");
     } catch (err) {
       console.log(err.response);
     }

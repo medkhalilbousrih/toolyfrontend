@@ -68,7 +68,7 @@ export default function SignIn() {
       console.log(data);
       const connectedUser = await signinService.login(data);
       setRole(connectedUser.data.role);
-      history.push("/catalogue");
+      history.push("/Home");
     } catch (exception) {
       setMsg(exception.response.data);
     }
@@ -77,7 +77,7 @@ export default function SignIn() {
   const loginFb = async (res) => {
     const connectedUser = await signinService.loginFb(res);
     setRole(connectedUser.data.role);
-    history.push("/catalogue");
+    history.push("/Home");
   };
 
   return (

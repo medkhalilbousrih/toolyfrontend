@@ -42,10 +42,10 @@ const App = () => {
               {role === "supplier" ? <Supplier /> : <Client />}
             </Route>
             <Route path="/signup">
-              <Redirect to="/catalogue" />
+              <Redirect to="/Home" />
             </Route>
             <Route path="/login">
-              <Redirect to="/catalogue" />
+              <Redirect to="/Home" />
             </Route>
             <Route path="/product/:id">
               <ProductProfile />
@@ -60,7 +60,7 @@ const App = () => {
         ) : (
           <Switch>
             <Route exact path="/">
-              <Redirect to="/catalogue" />
+              <Redirect to="/Home" />
             </Route>
             <Route path="/Home">
               <Home />

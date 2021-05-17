@@ -53,7 +53,7 @@ const MainNavbar = () => {
         console.log(res);
       })
       .catch((err) => console.log(err.response));
-    history.push("/catalogue");
+    history.push("/Home");
   };
 
   return (
