@@ -1,7 +1,6 @@
-import Carousel from "react-bootstrap/Carousel";
-import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const MiddlePart = () => {
   return (
@@ -11,24 +10,33 @@ const MiddlePart = () => {
         <CatType>
           <Box>
             <img src="./images/cc.PNG" style={{}} />
-            <p> Construction </p>
+            <p>
+              {" "}
+              <Link to="/catalogue/construction">Construction</Link>{" "}
+            </p>
             <i class="fas fa-chevron-right"></i>
           </Box>
           <Box>
             <img src="./images/gg.PNG" style={{ height: "90%" }} />
-            <p>Gardening</p>
+            <p>
+              <Link to="/catalogue/gardening">Gardening</Link>
+            </p>
             <i class="fas fa-chevron-right"></i>
           </Box>
           <Box>
             <img src="./images/AA.PNG" style={{}} />
-            <p>Energy & air</p>
+            <p>
+              <Link to="/catalogue/energy">Energy & HVAC</Link>
+            </p>
             <i class="fas fa-chevron-right"></i>
           </Box>
         </CatType>
         <CatType>
           <Box>
             <img src="./images/ff.PNG" style={{}} />
-            <p>Fieldwork</p>
+            <p>
+              <Link to="/catalogue/fieldwork">FieldWork</Link>
+            </p>
             <i class="fas fa-chevron-right"></i>
           </Box>
           <Box>

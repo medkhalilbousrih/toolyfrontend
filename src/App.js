@@ -35,7 +35,7 @@ const App = () => {
             <Route path="/about">
               <About />
             </Route>
-            <Route path="/catalogue">
+            <Route path="/catalogue/:category">
               <Catalogue />
             </Route>
             <Route path="/profile">
@@ -65,7 +65,7 @@ const App = () => {
             <Route path="/Home">
               <Home />
             </Route>
-            <Route path="/catalogue">
+            <Route path="/catalogue/:category">
               <Catalogue />
             </Route>
             <Route path="/signup">
