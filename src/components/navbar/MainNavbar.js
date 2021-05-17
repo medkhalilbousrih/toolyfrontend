@@ -95,7 +95,7 @@ const MainNavbar = () => {
         </Contact>
         <Nav>
           <div>
-            <Link to="/catalogue">
+            <Link to="/Home">
               <img src="/logo.png" alt="logo" />
             </Link>
           </div>
