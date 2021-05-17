@@ -78,7 +78,7 @@ const AddTool = () => {
             />
           </StyledGroup>
           <StyledGroup controlId="exampleForm.SelectCustom">
-            <Form.Label>Categories</Form.Label>
+            <Form.Label>Category</Form.Label>
             <Form.Control as="select" custom ref={register} name="category">
               {categories?.map((cat) => (
                 <option key={cat}>{cat}</option>

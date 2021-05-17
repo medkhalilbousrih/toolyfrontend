@@ -157,7 +157,7 @@ const ProductCard = () => {
                   Owner
                 </Typography>
                 <Typography className={classes.Numero} gutterBottom>
-                  {product.supplier.name}
+                  {product.supplier.name}({product.supplier.phoneNumber})
                 </Typography>
               </Flex1>
               <Flex1>
