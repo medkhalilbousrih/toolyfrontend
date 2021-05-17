@@ -16,6 +16,7 @@ import Supplier from "./components/thesupplier/Supplier";
 import Client from "./components/theclient/client";
 import ProductProfile from "./components/ProductPorfile/ProductProfile";
 import Cart from "./components/Cart/Cart";
+import Home from "./components/Home/Home";
 
 const App = () => {
   const [role, setRole] = useState(
@@ -29,7 +30,7 @@ const App = () => {
         {role ? (
           <Switch>
             <Route exact path="/">
-              <Redirect to="/catalogue" />
+              <Redirect to="/Home" />
             </Route>
             <Route path="/about">
               <About />
@@ -52,11 +53,17 @@ const App = () => {
             <Route path="/cart">
               {role === "supplier" ? <Catalogue /> : <Cart />}
             </Route>
+            <Route path="/Home">
+              <Home />
+            </Route>
           </Switch>
         ) : (
           <Switch>
             <Route exact path="/">
               <Redirect to="/catalogue" />
+            </Route>
+            <Route path="/Home">
+              <Home />
             </Route>
             <Route path="/catalogue">
               <Catalogue />
