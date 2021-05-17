@@ -1,6 +1,7 @@
 import Container from "@material-ui/core/Container";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import Middle from "./Middle.css";
 
 const MiddlePart = () => {
   return (
@@ -12,21 +13,27 @@ const MiddlePart = () => {
             <img src="./images/cc.PNG" style={{}} />
             <p>
               {" "}
-              <Link to="/catalogue/construction">Construction</Link>{" "}
+              <Link to="/catalogue/construction" className="MiddleCatlog">
+                Construction
+              </Link>{" "}
             </p>
             <i class="fas fa-chevron-right"></i>
           </Box>
           <Box>
             <img src="./images/gg.PNG" style={{ height: "90%" }} />
             <p>
-              <Link to="/catalogue/gardening">Gardening</Link>
+              <Link to="/catalogue/gardening" className="MiddleCatlog">
+                Gardening
+              </Link>
             </p>
             <i class="fas fa-chevron-right"></i>
           </Box>
           <Box>
             <img src="./images/AA.PNG" style={{}} />
             <p>
-              <Link to="/catalogue/energy">Energy & HVAC</Link>
+              <Link to="/catalogue/energy" className="MiddleCatlog">
+                Energy & HVAC
+              </Link>
             </p>
             <i class="fas fa-chevron-right"></i>
           </Box>
@@ -35,7 +42,9 @@ const MiddlePart = () => {
           <Box>
             <img src="./images/ff.PNG" style={{}} />
             <p>
-              <Link to="/catalogue/fieldwork">FieldWork</Link>
+              <Link to="/catalogue/fieldwork" className="MiddleCatlog">
+                FieldWork
+              </Link>
             </p>
             <i class="fas fa-chevron-right"></i>
           </Box>
