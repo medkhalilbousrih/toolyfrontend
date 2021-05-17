@@ -2,6 +2,7 @@ import Carousel from "react-bootstrap/Carousel";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const TopPart = () => {
   return (
@@ -12,14 +13,18 @@ const TopPart = () => {
             <img src="./images/e.jpg" style={{ width: "100%" }} />
           </AA>
           <Az>
-            <img
-              src="./images/a.jpg"
-              style={{ width: "100%", border: "1px solid #e0ddd5" }}
-            />
-            <img
-              src="./images/z.jpg"
-              style={{ width: "100%", border: "1px solid #e0ddd5" }}
-            />
+            <Link to="/profile">
+              <img
+                src="./images/a.jpg"
+                style={{ width: "100%", border: "1px solid #e0ddd5" }}
+              />
+            </Link>
+            <Link to="/catalogue">
+              <img
+                src="./images/z.jpg"
+                style={{ width: "100%", border: "1px solid #e0ddd5" }}
+              />
+            </Link>
           </Az>
         </Catalog>
       </Container>
