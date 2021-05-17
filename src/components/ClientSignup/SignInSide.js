@@ -19,12 +19,12 @@ const useStyles = makeStyles((theme) => ({
     height: "100vh",
   },
   image: {
-    backgroundImage: "url(./Images/tools.jpg)",
+    backgroundImage: "url(./Images/zama.jpg)",
     backgroundRepeat: "no-repeat",
     backgroundColor:
       theme.palette.type === "light"
-        ? theme.palette.grey[50]
-        : theme.palette.grey[900],
+        ? theme.palette.grey[80]
+        : theme.palette.grey[500],
     backgroundSize: "cover",
     backgroundPosition: "center",
   },
