@@ -68,7 +68,7 @@ const CatalogueCards = ({ tool }) => {
                     </Av>
                   </DD>
                   <DD>
-                    <p style={{ marginTop: "-0.5rem" }}>Price: 30 Dinars</p>
+                    <p style={{ marginTop: "-0.5rem" }}>{tool?.price}Dt</p>
                   </DD>
                 </Data>
               </Contenu>

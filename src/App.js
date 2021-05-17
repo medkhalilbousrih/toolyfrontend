@@ -32,6 +32,9 @@ const App = () => {
             <Route exact path="/">
               <Redirect to="/Home" />
             </Route>
+            <Route path="/Home">
+              <Home />
+            </Route>
             <Route path="/about">
               <About />
             </Route>
@@ -52,9 +55,6 @@ const App = () => {
             </Route>
             <Route path="/cart">
               {role === "supplier" ? <Catalogue /> : <Cart />}
-            </Route>
-            <Route path="/Home">
-              <Home />
             </Route>
           </Switch>
         ) : (
