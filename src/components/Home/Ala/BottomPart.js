@@ -39,11 +39,11 @@ const BottomPart = () => {
         </Carousel>
         <h3 style={{ marginTop: "2rem" }}>Our Partners</h3>
         <Partners>
-          <img src="./images/e3.jpg" style={{ height: "50%", width: "20%" }} />
-          <img src="./images/e1.jpg" style={{ width: "15%" }} />
-          <img src="./images/e2.jpg" style={{ width: "10%" }} />
-          <img src="./images/e4.jpg" style={{ width: "20%" }} />
-          <img src="./images/e5.jpg" style={{ width: "20%" }} />
+          <img src="./images/e3.png" style={{ height: "50%", width: "20%" }} />
+          <img src="./images/e1.png" style={{ width: "15%" }} />
+          <img src="./images/e2.png" style={{ width: "10%" }} />
+          <img src="./images/e4.png" style={{ width: "20%" }} />
+          <img src="./images/e5.png" style={{ width: "20%" }} />
         </Partners>
       </Container>
       <br />
